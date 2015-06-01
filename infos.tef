@@ -1,0 +1,28 @@
+# R: we can use a standard terminal to communicate with the Espruino over the USB using serial:
+picocom --baud 9600 --flow n /dev/ttyACM0
+
+# R: to quit: "Ctrl-A Ctrl-Q"
+# R: investigate "Ctrl-A Ctrl-C" => "local echo toggle"
+
+# we can also directly issue commands without opening an interactive serial conn:
+echo "LED1.set()" > /dev/ttyACM0
+
+# ( for Mac, it may be more like "echo "LED1.set()" > /dev/cu.usmodem1234" )
+
+# also, if not connecting via USB, we may have to setup the baud rate first
+stty -F /dev/ttyACM0 9600
+
+
+## Espruino Python Companion ##
+# we can run commands from the shell with the folowing:
+# the following turns off echoing, aka the only text Espruino sends comes from print(...)
+./espruinoPythonCompanion.py "echo(0)"
+# or
+./espruinoPythonCompanion.py "print('hello')"
+# or
+./espruinoPythonCompanion.py "print(analogRead(A0))"
+# or ( not output, but utrns the LED on )
+./espruinoPythonCompanion.py "digitalWrite(LED1,1)"
+# and, if using "echo(0)" like advised above, depending on the needs
+# the following turns echoing back on for next terminal conn, to respond as expected
+./espruinoPythonCompanion.py "echo(1)"
