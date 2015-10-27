@@ -7,7 +7,8 @@ Allows to trigger stuff based on codes/patterns when a buttonPress/pinStateChang
 - [x] multiple codes/patterns support
 - [x] togglable inactivity reset
 - [ ] add 'MaxFailedTries' & 'MaxFailedTriesDelay' vars to delay any further input for some amount of time if <n> failed tries occured successively.  
-By 'failed tries', we mean 'wrong digit entered', NOT 'inactivity' ;)
+Nb: 'failed tries' meaning 'wrong digit entered', NOT 'inactivity' ;)
+- [ ] write an actual module from the current code ?
   
 
 ##### Supports multiple codes/patterns ( main addition to the original code )
