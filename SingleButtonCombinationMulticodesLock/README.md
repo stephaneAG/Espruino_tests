@@ -3,21 +3,6 @@ Single Button Combination Multicodes Lock
 
 Allows to trigger stuff based on codes/patterns when a buttonPress/pinStateChange happens  
 
-| subtitle 1 | subtitle 2 |
-|------------|------------|
-|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs1.png">|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs2.png">|  
-
-| subtitle 3 | subtitle 4 |
-|------------|------------|
-|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs3.png">|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs4.png">|  
-  
-
-| subtitle 5 |
-|------------|
-|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs5.png">|  
-
-nb: the images above reflects usage of the browser version, that provides output coloring
-
 ##### Supports multiple codes/paterns ( main addition to the original code )
 ```javascript
 var codes = [ 
@@ -106,5 +91,20 @@ function buttonWatch(e){
   if(timeDiff>0.1) onPress();
 }
 ```
+  
+##### Output coloring when using the browser version
+| shortest code match | code match |
+|------------|------------|
+|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs1.png">|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs2.png">|  
+
+| digit error reset | inactivity reset |
+|------------|------------|
+|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs3.png">|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs4.png">|  
+  
+| inactivity reset off |
+|------------|
+|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs5.png">|  
+
+nb: the images above reflects usage of the browser version, that provides output coloring
 
 based on [Single Button Combination Lock](http://www.espruino.com/Single+Button+Combination+Lock) ( code by & big thx to Gordon Williams - @Espruino )
