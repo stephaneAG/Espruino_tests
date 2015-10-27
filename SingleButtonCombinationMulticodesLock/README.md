@@ -1,13 +1,19 @@
 Single Button Combination Multicodes Lock
 -----------------------------------------
 
-Allows to trigger stuff based on codes/patterns when a buttonPress/pinStateChange happens
+Allows to trigger stuff based on codes/patterns when a buttonPress/pinStateChange happens  
 
-<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs1.png" width="49%">
-<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs2.png" width="49%">
-<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs3.png" width="49%">
-<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs4.png" width="49%">
-<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs5.png" width="49%">  
+| subtitle 1 | subtitle 2 |
+|------------|------------|
+|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs1.png">|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs2.png">|  
+
+| subtitle 3 | subtitle 4 |
+|------------|------------|
+|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs3.png">|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs4.png">|  
+
+| subtitle 5 | lol |
+|------------|-|
+|<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs5.png">| lol |  
 nb: the images above reflects usage of the browser version, that provides output coloring
 
 ##### Supports multiple codes/paterns ( main addition to the original code )
