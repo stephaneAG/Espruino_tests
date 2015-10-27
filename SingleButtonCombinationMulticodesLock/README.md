@@ -3,11 +3,11 @@ Single Button Combination Multicodes Lock
 
 Allows to trigger stuff based on codes/patterns when a buttonPress/pinStateChange happens
 
-<img src="stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs1.png" width="49%">
-<img src="stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs2.png" width="49%">
-<img src="stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs3.png" width="49%">
-<img src="stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs4.png" width="49%">
-<img src="stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs5.png" width="49%">  
+<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs1.png" width="49%">
+<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs2.png" width="49%">
+<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs3.png" width="49%">
+<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs4.png" width="49%">
+<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs5.png" width="49%">  
 nb: the images above reflects usage of the browser version, that provides output coloring
 
 ##### Supports multiple codes/paterns ( main addition to the original code )
