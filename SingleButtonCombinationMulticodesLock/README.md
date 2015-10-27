@@ -4,9 +4,10 @@ Single Button Combination Multicodes Lock
 Allows to trigger stuff based on codes/patterns when a buttonPress/pinStateChange happens  
 
 ##### TODOs:
+- [x] multiple codes/patterns support
+- [x] togglable inactivity reset
 - [ ] add 'MaxFailedTries' & 'MaxFailedTriesDelay' vars to delay any further input for some amount of time if <n> failed tries occured successively.  
 By 'failed tries', we mean 'wrong digit entered', NOT 'inactivity' ;)
-- [ ] write some software that'd handle intercom queries results (instead of "parsing" them using our .. brains ;D  )
   
 
 ##### Supports multiple codes/patterns ( main addition to the original code )
