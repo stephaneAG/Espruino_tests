@@ -121,4 +121,4 @@ Keep in mind that if you're using it on an Espruino, you'll have to remove or co
 |------------|
 |<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs5.png">|  
 
-UP! [:up:](#single-button-combination-multicodes-lock)
+[:up:](#single-button-combination-multicodes-lock)
