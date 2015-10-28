@@ -147,4 +147,21 @@ anotherParam: 0
 device restored !
 no pending update !
 
+
+Calling 'save()' again ( manually, here, not to hardcode to much junk ) 'd result in the following being logged
+>save()
+=undefined
+Erasing Flash.....
+Writing..........
+Compressed 81600 bytes to 7276
+Checking...
+Done!
+
+Running onInit()...
+-- current config --
+aParam: factoryName
+anotherParam: 0
+no pending update !
+
+
 */
