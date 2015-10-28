@@ -6,7 +6,7 @@ See the [screenshots](#output-coloring-when-using-the-browser-version) for a loc
 
 based on [Single Button Combination Lock](http://www.espruino.com/Single+Button+Combination+Lock) ( code by & big thx to Gordon Williams - @Espruino )
 
-##### TODOs [:arrow_down:](#output-coloring-when-using-the-browser-version) 
+##### TODOs [:arrow_down:](#supports-multiple-codespatterns--main-addition-to-the-original-code--up-arrow_up-arrow_down) 
 - [x] ~~multiple codes/patterns support~~
 - [x] ~~togglable inactivity reset~~
 - [ ] add 'MaxFailedTries' & 'MaxFailedTriesDelay' vars to delay any further input for some amount of time if <n> failed tries occured successively.  
@@ -14,7 +14,7 @@ Nb: 'failed tries' meaning 'wrong digit entered', NOT 'inactivity' ;)
 - [ ] write an actual module from the current code ?
   
 
-##### Supports multiple codes/patterns ( main addition to the original code ) [:up:](#output-coloring-when-using-the-browser-version) [:arrow_up:](#output-coloring-when-using-the-browser-version) [:arrow_down:](#output-coloring-when-using-the-browser-version) 
+##### Supports multiple codes/patterns ( main addition to the original code ) [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#todos-arrow_down) [:arrow_down:](#provides-shortest-code-match---inactivity-timeouts--up-arrow_up-arrow_down) 
 ```javascript
 var codes = [ 
              [3, 1, 2],    // unlock 1: unlock Door ( with random sound )
@@ -29,7 +29,7 @@ var codes = [
             ];
 ```
 
-##### Provides shortest code match  & inactivity timeouts  [:up:](#output-coloring-when-using-the-browser-version) [:arrow_up:](#output-coloring-when-using-the-browser-version) [:arrow_down:](#output-coloring-when-using-the-browser-version) 
+##### Provides shortest code match  & inactivity timeouts [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#supports-multiple-codespatterns--main-addition-to-the-original-code--up-arrow_up-arrow_down) [:arrow_down:](#works-on-both-espruino--browsers--useful-to-debug-stuff--have-a-colored-output---up-arrow_up-arrow_down) 
 'shortest code match' timeout happens when multiple patters/codes share the same beginning while one's length matches the keypresses digits.  
 In this case, if no more presses are sensed after a delay, we trigger the handler of the length-matching code.  
   
@@ -85,7 +85,7 @@ if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity
 if( delayForInactivity != 0 ) inactivityTimeout = setTimeout(inactivityReset, delayForInactivity);
 ```
 
-##### Works on both Espruino & browsers ( useful to debug stuff & have a colored output )  [:up:](#output-coloring-when-using-the-browser-version) [:arrow_up:](#output-coloring-when-using-the-browser-version) [:arrow_down:](#output-coloring-when-using-the-browser-version) 
+##### Works on both Espruino & browsers ( useful to debug stuff & have a colored output )  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#provides-shortest-code-match---inactivity-timeouts--up-arrow_up-arrow_down) [:arrow_down:](#output-coloring-when-using-the-browser-version) 
 ```javascript
 /* -- browser usage -- */
 // fake button using spacebar ( simulates the 'buttonWatcher()' function in Espruino )
@@ -105,7 +105,7 @@ function buttonWatch(e){
 }
 ```
   
-##### Output coloring when using the browser version  [:up:](#output-coloring-when-using-the-browser-version) [:arrow_up:](#output-coloring-when-using-the-browser-version)
+##### Output coloring when using the browser version  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#works-on-both-espruino--browsers--useful-to-debug-stuff--have-a-colored-output---up-arrow_up-arrow_down)
 While the code can be used on the Espruino, it'll run as well in any browser, and can provides us colored output to help testing & debugging aspecific configuration's parameters.  
 Keep in mind that if you're using it on an Espruino, you'll have to remove or comment-out the colored logs calls [, & remmember that each call to 'console.log()' 'll consume a little CPU ? don't know yet how are treated calls when USB Rx/tx are not connected .. but this 'd occupy space anyway ]  
 
