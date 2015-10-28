@@ -29,7 +29,7 @@ var codes = [
             ];
 ```
 
-##### Provides shortest code match  & inactivity timeouts [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#supports-multiple-codespatterns--main-addition-to-the-original-code--up-arrow_up-arrow_down) [:arrow_down:](#works-on-both-espruino--browsers--useful-to-debug-stuff--have-a-colored-output---up-arrow_up-arrow_down) 
+##### Provides shortest code match  & inactivity timeouts [:up:](#single-button-combination-multicodes-lock)  [:arrow_up:](#supports-multiple-codespatterns--main-addition-to-the-original-code--up-arrow_up-arrow_down) [:arrow_down:](#works-on-both-espruino--browsers--useful-to-debug-stuff--have-a-colored-output---up-arrow_up-arrow_down) 
 'shortest code match' timeout happens when multiple patters/codes share the same beginning while one's length matches the keypresses digits.  
 In this case, if no more presses are sensed after a delay, we trigger the handler of the length-matching code.  
   
