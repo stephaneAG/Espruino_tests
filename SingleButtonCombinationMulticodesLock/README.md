@@ -2,7 +2,7 @@ Single Button Combination Multicodes Lock
 -----------------------------------------
 
 Allows to trigger stuff based on codes/patterns when a buttonPress/pinStateChange happens.  
-See the [screenshots](#output-coloring-when-using-the-browser-version) for a local preview of the usage  
+See the [screenshots](#output-coloring-when-using-the-browser-version--up-arrow_up) for a local preview of the usage  
 
 based on [Single Button Combination Lock](http://www.espruino.com/Single+Button+Combination+Lock) ( code by & big thx to Gordon Williams - @Espruino )
 
