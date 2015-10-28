@@ -3,9 +3,8 @@ Single Button Combination Multicodes Lock
 
 Allows to trigger stuff based on codes/patterns when a buttonPress/pinStateChange happens.  
 See the [screenshots](#output-coloring-when-using-the-browser-version) for a local preview of the usage  
-[:speaker:](#output-coloring-when-using-the-browser-version)
 
-##### TODOs:
+##### TODOs: [:speaker:](#output-coloring-when-using-the-browser-version)
 - [x] ~~multiple codes/patterns support~~
 - [x] ~~togglable inactivity reset~~
 - [ ] add 'MaxFailedTries' & 'MaxFailedTriesDelay' vars to delay any further input for some amount of time if <n> failed tries occured successively.  
