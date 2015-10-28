@@ -4,7 +4,9 @@ Single Button Combination Multicodes Lock
 Allows to trigger stuff based on codes/patterns when a buttonPress/pinStateChange happens.  
 See the [screenshots](#output-coloring-when-using-the-browser-version) for a local preview of the usage  
 
-##### TODOs: [:speaker:](#output-coloring-when-using-the-browser-version) 
+based on [Single Button Combination Lock](http://www.espruino.com/Single+Button+Combination+Lock) ( code by & big thx to Gordon Williams - @Espruino )
+
+##### TODOs [:arrow_down:](#output-coloring-when-using-the-browser-version) 
 - [x] ~~multiple codes/patterns support~~
 - [x] ~~togglable inactivity reset~~
 - [ ] add 'MaxFailedTries' & 'MaxFailedTriesDelay' vars to delay any further input for some amount of time if <n> failed tries occured successively.  
@@ -12,7 +14,7 @@ Nb: 'failed tries' meaning 'wrong digit entered', NOT 'inactivity' ;)
 - [ ] write an actual module from the current code ?
   
 
-##### Supports multiple codes/patterns ( main addition to the original code )
+##### Supports multiple codes/patterns ( main addition to the original code ) [:up:](#output-coloring-when-using-the-browser-version) [:arrow_up:](#output-coloring-when-using-the-browser-version) [:arrow_down:](#output-coloring-when-using-the-browser-version) 
 ```javascript
 var codes = [ 
              [3, 1, 2],    // unlock 1: unlock Door ( with random sound )
@@ -27,7 +29,7 @@ var codes = [
             ];
 ```
 
-##### Provides shortest code match  & inactivity timeouts
+##### Provides shortest code match  & inactivity timeouts  [:up:](#output-coloring-when-using-the-browser-version) [:arrow_up:](#output-coloring-when-using-the-browser-version) [:arrow_down:](#output-coloring-when-using-the-browser-version) 
 'shortest code match' timeout happens when multiple patters/codes share the same beginning while one's length matches the keypresses digits.  
 In this case, if no more presses are sensed after a delay, we trigger the handler of the length-matching code.  
   
@@ -83,7 +85,7 @@ if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity
 if( delayForInactivity != 0 ) inactivityTimeout = setTimeout(inactivityReset, delayForInactivity);
 ```
 
-##### Works on both Espruino, original & Pico, and browsers ( useful to debug stuff & have a colored output )
+##### Works on both Espruino & browsers ( useful to debug stuff & have a colored output )  [:up:](#output-coloring-when-using-the-browser-version) [:arrow_up:](#output-coloring-when-using-the-browser-version) [:arrow_down:](#output-coloring-when-using-the-browser-version) 
 ```javascript
 /* -- browser usage -- */
 // fake button using spacebar ( simulates the 'buttonWatcher()' function in Espruino )
@@ -103,7 +105,7 @@ function buttonWatch(e){
 }
 ```
   
-##### Output coloring when using the browser version
+##### Output coloring when using the browser version  [:up:](#output-coloring-when-using-the-browser-version) [:arrow_up:](#output-coloring-when-using-the-browser-version)
 While the code can be used on the Espruino, it'll run as well in any browser, and can provides us colored output to help testing & debugging aspecific configuration's parameters.  
 Keep in mind that if you're using it on an Espruino, you'll have to remove or comment-out the colored logs calls [, & remmember that each call to 'console.log()' 'll consume a little CPU ? don't know yet how are treated calls when USB Rx/tx are not connected .. but this 'd occupy space anyway ]  
 
@@ -118,6 +120,3 @@ Keep in mind that if you're using it on an Espruino, you'll have to remove or co
 | inactivity reset off |
 |------------|
 |<img src="http://stephaneadamgarnier.com/SingleButtonCombinationMulticodesLock/espruino_SingleButtonCombinationLock_onSteroids_browserColoredLogs5.png">|  
-
-
-based on [Single Button Combination Lock](http://www.espruino.com/Single+Button+Combination+Lock) ( code by & big thx to Gordon Williams - @Espruino )
