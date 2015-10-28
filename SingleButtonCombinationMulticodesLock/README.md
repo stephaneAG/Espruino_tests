@@ -14,7 +14,7 @@ Nb: 'failed tries' meaning 'wrong digit entered', NOT 'inactivity' ;)
 - [ ] write an actual module from the current code ?
   
 
-##### Supports multiple codes/patterns ( main addition to the original code ) [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#todos-arrow_down) [:arrow_down:](#provides-shortest-code-match---inactivity-timeouts--up-arrow_up-arrow_down) 
+##### Supports multiple codes/patterns ( main addition to the original code ) [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#todos-arrow_down) [:arrow_down:](#provides-shortest-code-match---inactivity-timeouts-up-arrow_up-arrow_down) 
 ```javascript
 var codes = [ 
              [3, 1, 2],    // unlock 1: unlock Door ( with random sound )
@@ -85,7 +85,7 @@ if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity
 if( delayForInactivity != 0 ) inactivityTimeout = setTimeout(inactivityReset, delayForInactivity);
 ```
 
-##### Works on both Espruino & browsers ( useful to debug stuff & have a colored output )  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#provides-shortest-code-match---inactivity-timeouts--up-arrow_up-arrow_down) [:arrow_down:](#output-coloring-when-using-the-browser-version) 
+##### Works on both Espruino & browsers ( useful to debug stuff & have a colored output )  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#provides-shortest-code-match---inactivity-timeouts-up-arrow_up-arrow_down) [:arrow_down:](#output-coloring-when-using-the-browser-version--up-arrow_up) 
 ```javascript
 /* -- browser usage -- */
 // fake button using spacebar ( simulates the 'buttonWatcher()' function in Espruino )
@@ -105,7 +105,7 @@ function buttonWatch(e){
 }
 ```
   
-##### Output coloring when using the browser version  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#works-on-both-espruino--browsers--useful-to-debug-stuff--have-a-colored-output---up-arrow_up-arrow_down)
+##### Output coloring when using the browser version  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](works-on-both-espruino--browsers--useful-to-debug-stuff--have-a-colored-output---up-arrow_up-arrow_down)
 While the code can be used on the Espruino, it'll run as well in any browser, and can provides us colored output to help testing & debugging aspecific configuration's parameters.  
 Keep in mind that if you're using it on an Espruino, you'll have to remove or comment-out the colored logs calls [, & remmember that each call to 'console.log()' 'll consume a little CPU ? don't know yet how are treated calls when USB Rx/tx are not connected .. but this 'd occupy space anyway ]  
 
