@@ -105,7 +105,7 @@ function buttonWatch(e){
 }
 ```
   
-##### Output coloring when using the browser version  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](works-on-both-espruino--browsers--useful-to-debug-stuff--have-a-colored-output---up-arrow_up-arrow_down)
+##### Output coloring when using the browser version  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#works-on-both-espruino--browsers--useful-to-debug-stuff--have-a-colored-output---up-arrow_up-arrow_down)
 While the code can be used on the Espruino, it'll run as well in any browser, and can provides us colored output to help testing & debugging aspecific configuration's parameters.  
 Keep in mind that if you're using it on an Espruino, you'll have to remove or comment-out the colored logs calls [, & remmember that each call to 'console.log()' 'll consume a little CPU ? don't know yet how are treated calls when USB Rx/tx are not connected .. but this 'd occupy space anyway ]  
 
