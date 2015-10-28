@@ -14,7 +14,7 @@ Nb: 'failed tries' meaning 'wrong digit entered', NOT 'inactivity' ;)
 - [ ] write an actual module from the current code ?
   
 
-##### Supports multiple codes/patterns ( main addition to the original code ) [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#todos-arrow_down) [:arrow_down:](#provides-shortest-code-match---inactivity-timeouts-up-arrow_up-arrow_down) 
+##### Supports multiple codes/patterns ( main addition to the original code ) [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#todos-arrow_down) [:arrow_down:](#provides-shortest-code-match---inactivity-timeouts-up--arrow_up-arrow_down) 
 ```javascript
 var codes = [ 
              [3, 1, 2],    // unlock 1: unlock Door ( with random sound )
@@ -85,7 +85,7 @@ if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity
 if( delayForInactivity != 0 ) inactivityTimeout = setTimeout(inactivityReset, delayForInactivity);
 ```
 
-##### Works on both Espruino & browsers ( useful to debug stuff & have a colored output )  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#provides-shortest-code-match---inactivity-timeouts-up-arrow_up-arrow_down) [:arrow_down:](#output-coloring-when-using-the-browser-version--up-arrow_up) 
+##### Works on both Espruino & browsers ( useful to debug stuff & have a colored output )  [:up:](#single-button-combination-multicodes-lock) [:arrow_up:](#provides-shortest-code-match---inactivity-timeouts-up--arrow_up-arrow_down) [:arrow_down:](#output-coloring-when-using-the-browser-version--up-arrow_up) 
 ```javascript
 /* -- browser usage -- */
 // fake button using spacebar ( simulates the 'buttonWatcher()' function in Espruino )
