@@ -63,48 +63,13 @@ function onTimeout(){
   timeout = undefined;
   // check against our codeS
   var currentCodes = remainingCodes;
-  //console.log('current codes:\n' + remainingCodes.join('\n') ); // uncolored log
-  var coloredLog = "current codes:\n";
-  var logColors = [];
-  currentCodes.forEach(function(code){
-    var codeLog = "%c[ ";
-    logColors.push( 'color: grey;' );
-    code.forEach(function(codeChunk){
-      codeLog += "%c" + codeChunk + "%c ";
-      logColors.push( 'color: blue;', 'color: grey;' );
-    });
-    codeLog += "%c]\n";
-    logColors.push( 'color: grey;' );
-    coloredLog += codeLog;
-  });
-  logColors.unshift( coloredLog );
-  console.log.apply(console, logColors ); // colored log
+  console.log('current codes:\n' + remainingCodes.join('\n') ); // uncolored log
 
   remainingCodes = [];
   currentCodes.forEach(function(code){
     if(pressCount == code[digit]) remainingCodes.push(code);
   });
-  //console.log('remaining codes:\n' + remainingCodes.join('\n') ); // uncolored log
-  var coloredLog = "remaining codes:\n";
-  var logColors = [];
-  remainingCodes.forEach(function(code){
-    var codeLog = "%c[ ";
-    logColors.push( 'color: grey;' );
-    var codeChunkIdx = 0;
-    code.forEach(function(codeChunk){
-      codeLog += "%c" + codeChunk + "%c ";
-      //logColors.push( codeChunkIdx > digit? 'color: blue;' : 'color: green;', 'color: grey;' ); // simple differentiation ( green = code chunks already matching, blue = code chunks to be matched against )
-      if (code.length == digit+1) logColors.push( 'color: purple;', 'color: grey;' ); // shortest code match differentiation
-      else logColors.push( codeChunkIdx > digit? 'color: blue;' : 'color: green;', 'color: grey;' ); // simple differentiation ( see above comment )
-      codeChunkIdx++;
-    });
-    codeLog += "%c]\n";
-    logColors.push( 'color: grey;' );
-    coloredLog += codeLog;
-  });
-  logColors.unshift( coloredLog );
-  console.log.apply(console, logColors ); // colored log
-
+  console.log('remaining codes:\n' + remainingCodes.join('\n') ); // uncolored log
   
   if(remainingCodes.length != 0){ // multi codes
     //console.log('remaining codes not empty');
@@ -119,10 +84,8 @@ function onTimeout(){
 
     if(shortestCodeMatch && remainingCodes.length == 1 ){
       if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity reset' that may be pending
-      //console.log('code match found !'); // uncolored log
-      console.log('%ccode match found !', 'color: blue;'); // colored log
-      //console.log('end of code [' + shortestCodeMatch.join(' ') + '] - triggering handler ..'); // uncolored log
-      console.log('%cend of code %c[%c' + shortestCodeMatch.join(' ') + '%c]%c - triggering handler ..', 'color: green;', 'color: grey;',  'color: blue;', 'color: grey;', 'color: green;'); // colored log
+      console.log('code match found !'); // uncolored log
+      console.log('end of code [' + shortestCodeMatch.join(' ') + '] - triggering handler ..'); // uncolored log
       if( shortestCodeMatch.join() == codes[0].join() ) setLocked(false);
       else if( shortestCodeMatch.join() == codes[1].join() ) setLocked2(false);
       // ..
@@ -131,11 +94,9 @@ function onTimeout(){
       remainingCodes = codes;
     } else if(shortestCodeMatch){
       if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity reset' that may be pending
-      //console.log('shortest code match found !'); // uncolored log
-      console.log('%cshortest code match found !', 'color: purple;'); // colored log
+      console.log('shortest code match found !'); // uncolored log
       shortestMatchTimeout = setTimeout(function(){
-        //console.log('end of code [' + shortestCodeMatch.join(' ') + '] - triggering handler ..'); // uncolored log
-        console.log('%cend of code %c[%c' + shortestCodeMatch.join(' ') + '%c]%c - triggering handler ..', 'color: green;', 'color: grey;',  'color: purple;', 'color: grey;', 'color: green;'); // colored log
+        console.log('end of code [' + shortestCodeMatch.join(' ') + '] - triggering handler ..'); // uncolored log
         if( shortestCodeMatch.join() == codes[0].join() ) setLocked(false);
         else if( shortestCodeMatch.join() == codes[1].join() ) setLocked2(false);
         // ..
@@ -144,16 +105,13 @@ function onTimeout(){
         remainingCodes = codes;
       }, delayBeforeShortestCodeMatch);
     } else {
-      //console.log('no shortestCodeMatch nor code match ..'); // uncolored log
-      console.log('%cno shortestCodeMatch nor code match ..', 'color: orange;'); // colored log
-      //console.log('.. but digit correct ! - next digit ..'); // uncolored log
-      console.log('%c.. but digit correct ! - next digit ..', 'color: green;'); // colored log
+      console.log('no shortestCodeMatch nor code match ..'); // uncolored log
+      console.log('.. but digit correct ! - next digit ..'); // uncolored log
     }
   } else {
     if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity reset' that may be pending
     //console.log('remaining codes may be empty');
-    //console.log('error ! - back to the start !'); // uncolored log
-    console.log('%cerror ! - back to the start !', 'color: red;'); // colored log
+    console.log('error ! - back to the start !'); // uncolored log
     setLocked(true);
     // go to the beginning of code again
     digit = 0;
@@ -180,15 +138,6 @@ function onPress(){
 }
 
 
-/* -- browser usage -- */
-// fake button using spacebar ( simulates the 'buttonWatcher()' function in Espruino )
-document.addEventListener('keyup', function(e){ 
-  if(e.keyCode == 32){ // I only use the spacebar as fake button ( ' could have used the whole keyboard .. )
-    //console.log('lol' + new Date().toString() );
-    onPress(null); // R: 'timeDiff' not used
-  } 
-});
-
 /* -- Espruino usage -- */
 // watch button for presses ( or actually pin activity )
 function buttonWatch(e){
@@ -196,3 +145,4 @@ function buttonWatch(e){
   lastPress = e.time;
   if(timeDiff>0.1) onPress();
 }
+setWatch(buttonWatcher, BTN, {edge:"falling", repeat:true});
