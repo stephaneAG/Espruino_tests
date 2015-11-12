@@ -48,8 +48,8 @@ function setLocked2(isLocked){
 
 // inactivity reset
 function inactivityReset(){
-  //console.log('inactivity reset ! - back to the start !'); // uncolored log
-  console.log('%cinactivity reset ! - back to the start !', 'color: red;'); // uncolored log
+  inactivityTimeout = undefined; // what fixes it ?
+  console.log('inactivity reset ! - back to the start !'); // uncolored log
   setLocked(true);
   // go to the beginning of code again
   digit = 0;
@@ -96,6 +96,7 @@ function onTimeout(){
       if(inactivityTimeout){ clearTimeout(inactivityTimeout); inactivityTimeout = undefined; } // cancel the 'inactivity reset' that may be pending
       console.log('shortest code match found !'); // uncolored log
       shortestMatchTimeout = setTimeout(function(){
+        shortestMatchTimeout = undefined;
         console.log('end of code [' + shortestCodeMatch.join(' ') + '] - triggering handler ..'); // uncolored log
         if( shortestCodeMatch.join() == codes[0].join() ) setLocked(false);
         else if( shortestCodeMatch.join() == codes[1].join() ) setLocked2(false);
@@ -145,4 +146,4 @@ function buttonWatch(e){
   lastPress = e.time;
   if(timeDiff>0.1) onPress();
 }
-setWatch(buttonWatcher, BTN, {edge:"falling", repeat:true});
+setWatch(buttonWatch, B6, {edge:"falling", repeat:true});
