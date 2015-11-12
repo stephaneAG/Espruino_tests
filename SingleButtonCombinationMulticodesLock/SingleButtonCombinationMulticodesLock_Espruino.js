@@ -83,7 +83,7 @@ function onTimeout(){
     });
 
     if(shortestCodeMatch && remainingCodes.length == 1 ){
-      if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity reset' that may be pending
+      if(inactivityTimeout){ clearTimeout(inactivityTimeout); inactivityTimeout = undefined; } // cancel the 'inactivity reset' that may be pending
       console.log('code match found !'); // uncolored log
       console.log('end of code [' + shortestCodeMatch.join(' ') + '] - triggering handler ..'); // uncolored log
       if( shortestCodeMatch.join() == codes[0].join() ) setLocked(false);
@@ -93,7 +93,7 @@ function onTimeout(){
       digit = 0;
       remainingCodes = codes;
     } else if(shortestCodeMatch){
-      if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity reset' that may be pending
+      if(inactivityTimeout){ clearTimeout(inactivityTimeout); inactivityTimeout = undefined; } // cancel the 'inactivity reset' that may be pending
       console.log('shortest code match found !'); // uncolored log
       shortestMatchTimeout = setTimeout(function(){
         console.log('end of code [' + shortestCodeMatch.join(' ') + '] - triggering handler ..'); // uncolored log
@@ -109,7 +109,7 @@ function onTimeout(){
       console.log('.. but digit correct ! - next digit ..'); // uncolored log
     }
   } else {
-    if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity reset' that may be pending
+    if(inactivityTimeout){ clearTimeout(inactivityTimeout); inactivityTimeout = undefined; } // cancel the 'inactivity reset' that may be pending
     //console.log('remaining codes may be empty');
     console.log('error ! - back to the start !'); // uncolored log
     setLocked(true);
@@ -127,9 +127,9 @@ function onPress(){
   // if we had a timeout from another button press, remove it
   if(timeout) clearTimeout(timeout);
   // if we had a timeout from a shortestCodeMatch, remove it
-  if(shortestMatchTimeout) clearTimeout(shortestMatchTimeout);
+  if(shortestMatchTimeout){ clearTimeout(shortestMatchTimeout); shortestMatchTimeout = undefined; }
   // if we had a timeout from an inactivity reset, remove it
-  if(inactivityTimeout) clearTimeout(inactivityTimeout);
+  if(inactivityTimeout){ clearTimeout(inactivityTimeout); inactivityTimeout = undefined; }
   // one second ( or anything else set in 'delayBetweenPresses' ) after this press, run 'onTimeout()'
   timeout = setTimeout(onTimeout, delayBetweenPresses);
   // one second and a half ( or anything else set in 'delayForInactivity' ) after this press, run 'inactivityReset()'
