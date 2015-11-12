@@ -71,11 +71,11 @@ function onTimeout(){
   });
   console.log('remaining codes:\n' + remainingCodes.join('\n') ); // uncolored log
   
-  if(remainingCodes.length != 0){ // multi codes
+  if(remainingCodes.length !== 0){ // multi codes
     //console.log('remaining codes not empty');
     digit++;
     
-    var shortestCodeMatch = undefined;
+    var shortestCodeMatch; // = undefined;
     remainingCodes.forEach(function(code){
       if(digit >= code.length){
         shortestCodeMatch = code;
@@ -134,7 +134,7 @@ function onPress(){
   timeout = setTimeout(onTimeout, delayBetweenPresses);
   // one second and a half ( or anything else set in 'delayForInactivity' ) after this press, run 'inactivityReset()'
   //inactivityTimeout = setTimeout(inactivityReset, delayForInactivity);
-  if( delayForInactivity != 0 ) inactivityTimeout = setTimeout(inactivityReset, delayForInactivity);
+  if( delayForInactivity !== 0 ) inactivityTimeout = setTimeout(inactivityReset, delayForInactivity);
 }
 
 
