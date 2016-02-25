@@ -18,6 +18,7 @@ var shortestMatchTimeout; // timeout that happens one second and a half after a 
 var inactivityTimeout;    // timeout that happens one second and a half after no input if the above is undefined
 
 // R: old set of codes: take only a number of presses to represent a digit in account
+/*
 var codes = [ 
              [3, 1, 2],   // unlock 1: unlock Door
              [4, 1, 2],   // unlock 2: send SMS
@@ -28,6 +29,7 @@ var codes = [
              [4, 1, 4], // unlock 7: unlock door mario-style
              // ..
             ];
+*/
             
 // the buttons maps, to easily id<->pin
 var btnsMaps = { 'x': 'B6', 'y': 'B7', 'z': 'B8' };
@@ -232,12 +234,14 @@ function onPress(btnId){ // new, getting passed a buttonId
 
 /* -- browser usage -- */
 // fake button using spacebar ( simulates the 'buttonWatcher()' function in Espruino )
+/*
 document.addEventListener('keyup', function(e){ 
   if(e.keyCode == 32){ // I only use the spacebar as fake button ( ' could have used the whole keyboard .. )
     //console.log('lol' + new Date().toString() );
     onPress(null); // R: 'timeDiff' not used
   } 
 });
+*/
 
 // TODO: write new quick browser usage, using different keys on keyboard OR mouse clicks on specific stuff ( .. )
 document.addEventListener('keyup', function(e){
