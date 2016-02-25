@@ -79,7 +79,8 @@ function inactivityReset(){
   console.log('%cinactivity reset ! - back to the start !', 'color: red;'); // uncolored log
   setLocked(true);
   // go to the beginning of code again
-  digit = 0;
+  //digit = 0;
+  chunk = 0;
   remainingCodes = codes;
   // reset presses
   pressCount = 0;
@@ -219,7 +220,8 @@ function onPress(btnId){ // new, getting passed a buttonId
   pressCount++; // R: adapt to apply only if button being pressed hasn't changed since last press ?
   //if (btnId == btnBeingPressed) pressCount++;
   //else .. ? 
-  console.log(pressCount);
+  console.log('pressCount: ' + pressCount);
+  console.log('btnBeingPressed: ' + btnBeingPressed);
   // if we had a timeout from another button press, remove it
   if(timeout) clearTimeout(timeout);
   // if we had a timeout from a shortestCodeMatch, remove it
