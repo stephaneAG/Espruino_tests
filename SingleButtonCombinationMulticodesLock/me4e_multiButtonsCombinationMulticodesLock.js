@@ -43,9 +43,9 @@ var codes = [
              ['x4', 'y1', 'z2', 'x3'], // pattern 5: 
              ['x4', 'y1', 'z3'], // pattern 6: 
              ['x4', 'y1', 'z4'], // pattern 7:
-             ['x', 'y2', 'z3'] // pattern 8:
-             ['x', 'y', 'x', 'y'] // pattern 9:
-             ['x2', 'y', 'x2', 'y'] // pattern 10:
+             ['x', 'y2', 'z3'], // pattern 8:
+             ['x', 'y', 'x', 'y'], // pattern 9:
+             ['x2', 'y', 'x2', 'y'], // pattern 10:
              ['x2', 'y2'] // pattern 11:
              // .. // pattern <n°>: 
             ];
@@ -164,6 +164,10 @@ function onTimeout(){
       if( shortestCodeMatch.join() == codes[0].join() ) setLocked(false);
       else if( shortestCodeMatch.join() == codes[1].join() ) setLocked2(false);
       // ..
+      // or, to replace the above for many patterns
+      codes.forEach(function(code){
+        if( code.join() == shortestCodeMatch.join() ) console.log('Code: ' + code.join() )// trigger the corresponding handler ..
+      })
       // go to the beginning of code again
       //digit = 0;
       chunk = 0;
@@ -179,11 +183,9 @@ function onTimeout(){
         else if( shortestCodeMatch.join() == codes[1].join() ) setLocked2(false);
         // ..
         // or, to replace the above for many patterns
-        /*
         codes.forEach(function(code){
-          if( code.join() == shortestCodeMatch.join() ) // trigger the corresponding handler ..
+          if( code.join() == shortestCodeMatch.join() ) console.log('Code: ' + code.join() )// trigger the corresponding handler ..
         })
-        */
         // go to the beginning of code again
         //digit = 0;
         chunk = 0;
