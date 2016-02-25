@@ -119,7 +119,7 @@ function onTimeout(){
       var count = 1;
     }
     // now compare
-    if(pressCount == code[digit] && btnBeingPressed == btnId ) remainingCodes.push(code);
+    if(pressCount == code[chunk] && btnBeingPressed == btnId ) remainingCodes.push(code);
   });
   //console.log('remaining codes:\n' + remainingCodes.join('\n') ); // uncolored log
   var coloredLog = "remaining codes:\n";
