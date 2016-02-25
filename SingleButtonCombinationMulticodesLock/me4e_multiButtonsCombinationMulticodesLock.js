@@ -2,6 +2,8 @@
   multiButtonsCombinationMulticodesLock.js - allows to trigger stuff based on codes/patterns when buttonPresses/pinStateChanges happens
   based on http://www.espruino.com/Single+Button+Combination+Lock ( code & big thx to Gordon Williams - @Espruino )
 
+  R: TO BE TESTED !! UNTESTED YET !!
+
   by @StephaneAG - 2016
 */
 
@@ -105,7 +107,17 @@ function onTimeout(){
 
   remainingCodes = [];
   currentCodes.forEach(function(code){
-    if(pressCount == code[digit]) remainingCodes.push(code);
+    //if(pressCount == code[digit]) remainingCodes.push(code); // R: old code, with chunk being only a digit
+    // check if chunk contains a numeric additionally to an id
+    if (code[chunk].length > 1 ){
+      var btnId = code[chunk][0];
+      var count = Number( code[chunk].substr(1) );
+    } else {
+      var btnId = code[chunk];
+      var count = 1;
+    }
+    // now compare
+    if(pressCount == code[digit] && btnBeingPressed == btnId ) remainingCodes.push(code);
   });
   //console.log('remaining codes:\n' + remainingCodes.join('\n') ); // uncolored log
   var coloredLog = "remaining codes:\n";
@@ -131,7 +143,8 @@ function onTimeout(){
   
   if(remainingCodes.length != 0){ // multi codes
     //console.log('remaining codes not empty');
-    digit++;
+    //digit++;
+    chunk++;
     
     var shortestCodeMatch = undefined;
     remainingCodes.forEach(function(code){
@@ -150,7 +163,8 @@ function onTimeout(){
       else if( shortestCodeMatch.join() == codes[1].join() ) setLocked2(false);
       // ..
       // go to the beginning of code again
-      digit = 0;
+      //digit = 0;
+      chunk = 0;
       remainingCodes = codes;
     } else if(shortestCodeMatch){
       if(inactivityTimeout) clearTimeout(inactivityTimeout); // cancel the 'inactivity reset' that may be pending
@@ -162,8 +176,15 @@ function onTimeout(){
         if( shortestCodeMatch.join() == codes[0].join() ) setLocked(false);
         else if( shortestCodeMatch.join() == codes[1].join() ) setLocked2(false);
         // ..
+        // or, to replace the above for many patterns
+        /*
+        codes.forEach(function(code){
+          if( code.join() == shortestCodeMatch.join() ) // trigger the corresponding handler ..
+        })
+        */
         // go to the beginning of code again
-        digit = 0;
+        //digit = 0;
+        chunk = 0;
         remainingCodes = codes;
       }, delayBeforeShortestCodeMatch);
     } else {
@@ -179,7 +200,8 @@ function onTimeout(){
     console.log('%cerror ! - back to the start !', 'color: red;'); // colored log
     setLocked(true);
     // go to the beginning of code again
-    digit = 0;
+    //digit = 0;
+    chunk = 0;
     remainingCodes = codes;
   }
   pressCount = 0;
@@ -218,6 +240,12 @@ document.addEventListener('keyup', function(e){
 });
 
 // TODO: write new quick browser usage, using different keys on keyboard OR mouse clicks on specific stuff ( .. )
+document.addEventListener('keyup', function(e){
+  //console.log(e.keyCode)
+  if(e.keyCode == 88) onPress('x'); // left papatte
+  else if(e.keyCode == 89) onPress('y'); // right papatte
+  else if(e.keyCode == 90) onPress('z'); // tummy
+});
 
 /* -- Espruino usage -- */
 // watch button for presses ( or actually pin activity )
