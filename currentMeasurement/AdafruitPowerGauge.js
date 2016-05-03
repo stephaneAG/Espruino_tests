@@ -1,8 +1,3 @@
-var dataBuff = ''; // 'll hold the messages from the Power Gauge's serial TTL output ( ATtiny85's Tx pin )
-var voltage = ''; // the voltage parsed from the above data buff
-var current = ''; // the current parsed from the above data buff
-var watts = ''; // the watts parsed from the above data buff
-
 // dummy test in browser
 /*
 var typicalRead = 'V: 5.5 I: 916 mA Watts: 5.1'
@@ -20,6 +15,11 @@ typicalRead_watts + 'watts'
 "5.1watts"
 */
 /* ---- Espruino code ---- */
+
+var dataBuff = ''; // 'll hold the messages from the Power Gauge's serial TTL output ( ATtiny85's Tx pin )
+var voltage = ''; // the voltage parsed from the above data buff
+var current = ''; // the current parsed from the above data buff
+var watts = ''; // the watts parsed from the above data buff
 
 Serial4.setup(9600); // aka: use default Serial4 Rx pin ( C11 on original Espruino board )
 Serial4.on('data', function(data){
