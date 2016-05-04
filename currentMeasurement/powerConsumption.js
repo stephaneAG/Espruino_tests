@@ -26,7 +26,7 @@ Serial4.on('data', function(data){
   dataBuff += data;
   //if ( dataBuff.indexOf('\r') !== -1 ){
   if ( dataBuff.indexOf('\n') !== -1 ){ // this may be the trick ? => INDEED ;P
-    //print('Power Gauge Data: ' + dataBuff); // echo to USB console ( != than Serial4.print .. )
+    //print('Power Consumption Data: ' + dataBuff); // echo to USB console ( != than Serial4.print .. )
     //print(dataBuff.substr(0, dataBuff.indexOf('\r')));
     print(dataBuff); // prints perfectly EVERYTHING ^^
 
@@ -36,7 +36,7 @@ Serial4.on('data', function(data){
     watts = dataBuff.substr(dataBuff.indexOf('Watts: ')+'Watts: '.length );
 
     // quick debug logs
-    print( 'Power Gauge Data => voltage: ' + voltage + 'V, current: ' + current + 'mA, watts: ' + watts)
+    print( 'Power Consumption Data => voltage: ' + voltage + 'V, current: ' + current + 'mA, watts: ' + watts)
     
     // handle the log data & relate it to the current state of a plug to determine what to do ( toggle LED, send SMS, ..)
     handleGaugeUpdate(voltage, current, watts);
@@ -49,5 +49,5 @@ Serial4.on('data', function(data){
 
 function handleGaugeUpdate(voltage, current, watts){
   // TODO: average stuff across multiple reading/calls of this fcn to gain precision over the measurements & related "state"
-  print('Gauge update handler called :) !')
+  print('Power Consumption update handler called :) !')
 }
