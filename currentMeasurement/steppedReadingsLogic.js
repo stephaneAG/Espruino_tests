@@ -3,6 +3,20 @@
 var steps = 5; // number of steps to average a value / differ value confirmation ( the result in a final value for 'stuff' )
 var stuffs = []; // array where 'll be stored successive 'stuff's
 
+
+/* debug usage:
+handleStuff(7)
+still 4 steps to go
+handleStuff(4)
+still 3 steps to go
+handleStuff(1)
+still 2 steps to go
+handleStuff(8)
+still 1 steps to go
+handleStuff(3)
+average stuff computed from 5 stuffs
+current stuff value: 5
+*/
 function handleStuff(stuff){
   
   // check steps
@@ -15,7 +29,7 @@ function handleStuff(stuff){
     //var stuff = stuffs.reduce(function(pv, cv){ return pv + cv }, 0) / steps; // should be supported on Espruino
     var stuff = stuffs.reduce(function(pv, cv){ return pv + cv }, 0) / stuffs.length; // clearer
     stuffs = []; // reset the 'stepping array'
-    console.log('avarage stuff computed from ' + steps + ' stuffs')
+    console.log('average stuff computed from ' + steps + ' stuffs')
   }
   
   // handle stuff normally ( as if we were not 'stepping' )
