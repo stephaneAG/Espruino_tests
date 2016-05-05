@@ -13,38 +13,38 @@ iPad 3G
 ##### WALL OUTLET
 |              | VOLTAGE | CURRENT | WATTS |
 | ------------ | ---:    | ---:    | ---:  |
-| **CHARGING** |         | 1098mA  |       | 
-| **CHARGED**  |         | 416mA   |       |
+| **CHARGING** | V       | 1098mA  | W     | 
+| **CHARGED**  | V       | 416mA   | W     |
 ##### USB
-|          | VOLTAGE | CURRENT | WATTS |
-| -------- | ------- | ------- | ----- |
-| charging |         |         |       | 
-| charged  |         |         |       |
+|              | VOLTAGE | CURRENT | WATTS |
+| ------------ | ---:    | ---:    | ---:  |
+| **CHARGING** | V       | mA      | W     | 
+| **CHARGED**  | V       | mA      | W     |
 
 -------
 
 iPhone 4S
 ##### WALL OUTLET
-|          | VOLTAGE | CURRENT | WATTS |
-| -------- | ------- | ------- | ----- |
-| charging |         |         |       | 
-| charged  |         |         |       |
+|              | VOLTAGE | CURRENT | WATTS |
+| ------------ | ---:    | ---:    | ---:  |
+| **CHARGING** | V       | mA      | W     | 
+| **CHARGED**  | V       | mA      | W     |
 ##### USB
-|          | VOLTAGE | CURRENT | WATTS |
-| -------- | ------- | ------- | ----- |
-| charging |         |         |       | 
-| charged  |         |         |       |
+|              | VOLTAGE | CURRENT | WATTS |
+| ------------ | ---:    | ---:    | ---:  |
+| **CHARGING** | V       | mA      | W     | 
+| **CHARGED**  | V       | mA      | W     |
 
 -------
 
 GooPhone ( "Android iPhone 5-like" )
 ##### WALL OUTLET
-|          | VOLTAGE | CURRENT | WATTS |
-| -------- | ------- | ------- | ----- |
-| charging |         |         |       | 
-| charged  |         |         |       |
+|              | VOLTAGE | CURRENT | WATTS |
+| ------------ | ---:    | ---:    | ---:  |
+| **CHARGING** | V       | mA      | W     | 
+| **CHARGED**  | V       | mA      | W     |
 ##### USB
-|          | VOLTAGE | CURRENT | WATTS |
-| -------- | ------- | ------- | ----- |
-| charging |         |         |       | 
-| charged  |         |         |       |
+|              | VOLTAGE | CURRENT | WATTS |
+| ------------ | ---:    | ---:    | ---:  |
+| **CHARGING** | V       | mA      | W     | 
+| **CHARGED**  | V       | mA      | W     |
