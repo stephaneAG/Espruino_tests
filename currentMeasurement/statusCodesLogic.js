@@ -3,6 +3,25 @@
   0 -> no device connected ( available )
   1 -> device connected & charging ( busy )
   2 -> device connected & charged ( awaiting pickup )
+
+
+  Nb: an example of a 'real life' object:
+  
+  var box = {
+    spaces: [
+      {
+        deviceConnected: ,
+        devicePreviouslyConnected: ,
+        powerLine: {
+          voltage: ,
+          current: ,
+          watts: 
+        },
+        statusCode
+      },
+    ]
+  };
+
 */
 var statusCodes = [0, 0, 0, 0]; // default status codes, one for each space
 
