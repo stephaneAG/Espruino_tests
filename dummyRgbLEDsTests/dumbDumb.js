@@ -234,7 +234,8 @@ function tweenColor(pin, channel, from, to, dir, callback){
   if( from < to && dir === 0 ){
     //from++;
     from+= 0.05;
-    rgbLED.channel = from;
+    //rgbLED[channel] = from;
+    rgbLED[channel] = Number(from.toFixed(3));
     //console.log('IDX: ' + from/to);
     console.log('PIN: ' + pin + ' IDX: ' + from);
     colorTweenTimeout = setTimeout(function(){ tweenColor(pin, channel, from, to, dir, callback) }, 100);
@@ -242,7 +243,8 @@ function tweenColor(pin, channel, from, to, dir, callback){
   else if( from > to && dir === 1 ){
     //from++;
     from-= 0.05;
-    rgbLED.channel = from;
+    //rgbLED[channel] = from;
+    rgbLED[channel] = Number(from.toFixed(3));
     //console.log('IDX: ' + from/to);
     console.log('PIN: ' + pin + ' IDX: ' + from);
     colorTweenTimeout = setTimeout(function(){ tweenColor(pin, channel, from, to, dir, callback) }, 100);
