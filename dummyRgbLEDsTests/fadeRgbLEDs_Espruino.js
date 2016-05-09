@@ -41,6 +41,7 @@ function aquaToBlue(){
   tweenColor(greenPin, 'green', 1, 0, 1, blueToViolet);
 }
 
+// helper(s)
 function tweenColor(pin, channel, from, to, dir, callback){
   if( from < to && dir === 0 ){
     from+= 0.05;
@@ -57,8 +58,48 @@ function tweenColor(pin, channel, from, to, dir, callback){
   else { callback(); }
 }
 
+function stopColorFade(){
+  clearTimeout( colorTweenTimeout );
+  analogWrite(redPin, 0);
+  analogWrite(greenPin, 0);
+  analogWrite(bluePin, 0);
+}
 
-// run
+// specific fcnality "smoothed" color feedback ;p ( circular stepping between states )
+function deviceConnected_colorFeedback(){
+  tweenColor(bluePin, 'blue', 0, 1, 0, function(){
+    console.log('Device connected color feedback done !');
+  });
+}
+
+function deviceCharging_colorFeedback(){
+  tweenColor(bluePin, 'blue', 0, 1, 0, function(){
+    tweenColor(greenPin, 'green', 1, 0, 1, function(){
+      tweenColor(redPin, 'red', 0, 1, 0, function(){
+        tweenColor(bluePin, 'blue', 1, 0, 1, function(){
+          console.log('Device charging color feedback done !');
+        })
+      })
+    })
+  });
+}
+
+function deviceCharged_colorFeedback(){
+  tweenColor(greenPin, 'green', 0, 1, 0, function(){
+    tweenColor(redPin, 'red', 1, 0, 1, function(){
+      console.log('Device charged color feedback done !');
+    })
+  });
+}
+
+function deviceDisconnected_colorFeedback(){
+  tweenColor(redPin, 'red', 1, 0, 1, function(){
+    console.log('Device disconnected color feedback done !');
+  });
+}
+
+
+// run looping color fade
 blueToViolet();
-// to cancel:
+// to cancel ( ex: on disconnecting device )
 clearTimeout( colorTweenTimeout );
