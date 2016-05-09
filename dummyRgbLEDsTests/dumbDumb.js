@@ -285,3 +285,35 @@ function aquaToBlue(){
   console.log('aqua to blue -> 1 to 0');
   tweenColor(greenPin, 'green', 1, 0, 1, blueToViolet);
 }
+
+
+
+
+
+
+/* ==== EPSRUINO CODE ==== */
+function tweenColor(pin, channel, from, to, dir, callback){
+  console.log('channel:' + channel);
+  console.log('GLOBAL RGB => R:' + rgbLED.red + ' G:' + rgbLED.green + 'B: ' + rgbLED.blue);
+  if( from < to && dir === 0 ){
+    //from++;
+    from+= 0.05;
+    //rgbLED[channel] = from;
+    rgbLED[channel] = Number(from.toFixed(3));
+    analogWrite(pin, rgbLED[channel]); // Espruino call
+    //console.log('IDX: ' + from/to);
+    console.log('PIN: ' + pin + ' IDX: ' + from);
+    colorTweenTimeout = setTimeout(function(){ tweenColor(pin, channel, from, to, dir, callback) }, 100);
+  }
+  else if( from > to && dir === 1 ){
+    //from++;
+    from-= 0.05;
+    //rgbLED[channel] = from;
+    rgbLED[channel] = Number(from.toFixed(3));
+    analogWrite(pin, rgbLED[channel]); // Espruino call
+    //console.log('IDX: ' + from/to);
+    console.log('PIN: ' + pin + ' IDX: ' + from);
+    colorTweenTimeout = setTimeout(function(){ tweenColor(pin, channel, from, to, dir, callback) }, 100);
+  }
+  else { console.log('done !'); callback(); }
+}
