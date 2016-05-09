@@ -73,12 +73,10 @@ function deviceConnected_colorFeedback(){
 }
 
 function deviceCharging_colorFeedback(){
-  tweenColor(bluePin, 'blue', 0, 1, 0, function(){
-    tweenColor(greenPin, 'green', 1, 0, 1, function(){
-      tweenColor(redPin, 'red', 0, 1, 0, function(){
-        tweenColor(bluePin, 'blue', 1, 0, 1, function(){
-          console.log('Device charging color feedback done !');
-        })
+  tweenColor(greenPin, 'green', 1, 0, 1, function(){
+    tweenColor(redPin, 'red', 0, 1, 0, function(){
+      tweenColor(bluePin, 'blue', 1, 0, 1, function(){
+        console.log('Device charging color feedback done !');
       })
     })
   });
@@ -93,7 +91,7 @@ function deviceCharged_colorFeedback(){
 }
 
 function deviceDisconnected_colorFeedback(){
-  tweenColor(redPin, 'red', 1, 0, 1, function(){
+  tweenColor(greenPin, 'green', 1, 0, 1, function(){
     console.log('Device disconnected color feedback done !');
   });
 }
