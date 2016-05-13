@@ -35,8 +35,64 @@ boardLeds.length
 var ledsDefaultColor = boardLeds[0].getAttribute('fill')
 ledsDefaultColor
 //> "#BEC1C0"
+// quickie: turn on the LED1 & LED2 ( change their color to respectively red & green )
+boardLeds[1].setAttribute('fill', '#CC0512') // LED1
+boardLeds[0].setAttribute('fill', '#42B205'); // LED2
+
 
 // get the board buttons
 var boardButtons = boardSVG.querySelectorAll('[id*="btnToggle"]')
 boardButtons.length
 //> 1 -> sweet !
+// get the BTN press event ( to do more advanced stuff, we'd use mouseup & mouseown ( .. ) )
+boardButtons[0].addEventListener('click', function(e){
+  console.log('BTN clicked !');
+})
+
+// digg & add 'glowing/pulsing' color
+
+// quickies to do: on BTN mousedown, translate its shadow back to base of button, while translating both downward
+//                 on BTN mouseup, revert the above movement
+
+// somewhere to save the code that'll be executed ( no E.on('init', fcn(){ .. }) - a no need to 'save' ;p )
+
+// some test code that makes use of the above to toggle the onboard LEDs based on presses on BTN
+
+
+
+// ex: click to toggle on/off an oscillator that light red & green LEDs alternatively
+// init the LEDs to off
+ledsDefaultColor = '#BEC1C0'
+boardLeds[1].setAttribute('fill', ledsDefaultColor )
+boardLeds[0].setAttribute('fill', ledsDefaultColor )
+
+// helper vars
+var ledToggling = false; // oscillate LEDs or not
+var ledToggleT = undefined; // timeout
+
+// function that toggles the LEDs on & off
+function toggleLEDs(){
+  if( boardLeds[1].getAttribute('fill' ) === ledsDefaultColor ) {
+    boardLeds[1].setAttribute('fill', '#CC0512' ); // turn on red LED
+    boardLeds[0].setAttribute('fill', ledsDefaultColor); // turn off green LED
+  } else {
+    boardLeds[1].setAttribute('fill', ledsDefaultColor ); // turn off red LED
+    boardLeds[0].setAttribute('fill', '#42B205'); // turn on green LED
+  }
+  
+  // check if we continue oscillating or if it was the last time by now
+  if ( ledToggling === true ) ledToggleT = setTimeout(toggleLEDs, 1000);
+}
+
+// function that handles BTN press & toggles on/off the LEDs oscillator
+boardButtons[0].addEventListener('click', function(e){
+  console.log('BTN clicked !');
+  if ( ledToggling === true ){
+    ledToggling = false;
+    clearTimeout( ledToggleT );
+    ledToggleT = undefined; // necessary on Espruino
+  } else {
+    ledToggling = true;
+    toggleLEDs(); // start LEDs oscillator
+  }
+})
