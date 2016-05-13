@@ -49,7 +49,52 @@ boardButtons[0].addEventListener('click', function(e){
   console.log('BTN clicked !');
 })
 
+
+
+
 // digg & add 'glowing/pulsing' color
+// DIGG: http://webdesign.tutsplus.com/tutorials/how-to-animate-festive-svg-icons-with-css--webdesign-17658
+//       http://stackoverflow.com/questions/2463260/editing-svg-styles-from-javascript
+
+// test code ( applies parts of the above 2 links )
+/* -- add the following right after the beginning of the <svg> tag --
+<defs xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css">
+      <![CDATA[
+      #ledBulb_1_ {
+        fill: hsl(145, 70%, 23%);
+        animation-name: glow-green;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+      }
+      @keyframes glow-green {
+        0% { fill: hsl(145, 80%, 23%); }
+        100% { fill: hsl(145, 80%, 63%); }
+      }
+
+      #ledBulb {
+        fill: hsl(6, 70%, 23%);
+        animation-name: glow-red;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+        animation-delay: 1s;
+      }
+      @keyframes glow-red {
+        0% { fill: hsl(6, 80%, 23%); }
+        100% { fill: hsl(6, 80%, 63%); }
+      }
+
+      ]]>
+    </style>
+  </defs>
+*/
+
+
+
 
 // quickies to do: on BTN mousedown, translate its shadow back to base of button, while translating both downward
 //                 on BTN mouseup, revert the above movement
