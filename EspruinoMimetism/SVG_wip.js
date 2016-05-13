@@ -141,3 +141,77 @@ boardButtons[0].addEventListener('click', function(e){
     toggleLEDs(); // start LEDs oscillator
   }
 })
+
+
+
+
+
+
+// mod of the above code to have pulsating LEDs instead of just on/off toggling
+// 1: add the following to the svg ( whatever the manner )
+/*
+<defs xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css">
+      <![CDATA[
+      @keyframes glow-green {
+        0% { fill: hsl(145, 80%, 23%); }
+        100% { fill: hsl(145, 80%, 63%); }
+      }
+      @keyframes glow-red {
+        0% { fill: hsl(6, 80%, 23%); }
+        100% { fill: hsl(6, 80%, 63%); }
+      }
+      ]]>
+    </style>
+  </defs>
+*/
+
+// 2: we have to handle the following directly in js
+/*
+#ledBulb_1_ {
+        fill: hsl(145, 70%, 23%);
+        animation-name: glow-green;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+      }
+#ledBulb {
+        fill: hsl(6, 70%, 23%);
+        animation-name: glow-red;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+        animation-delay: 1s;
+      }
+*/
+// R: need those ( present in the above code  )
+//var boardSVG = document.querySelector('[id*="BOARD_"]')
+//var boardLeds = boardSVG.querySelectorAll('[id*="ledBulb"]')
+//var boardButtons = boardSVG.querySelectorAll('[id*="btnToggle"]')
+//var ledsDefaultColor = boardLeds[0].getAttribute('fill')
+
+var ledPulsatingToggling = false;
+
+// function that toggles the LEDs on & off
+function toggleAndPulsateLEDs(){
+  //if( /*boardLeds[1].getAttribute('style' ) === ''  || */ boardLeds[1].getAttribute('fill' ) === ledsDefaultColor ) { // the OR is here to handle the 1st click ever
+  if ( ledPulsatingToggling === true ){
+    // init both leds toggling
+    boardLeds[0].setAttribute('style', 'fill: hsl(145, 70%, 23%); animation-name: glow-green; animation-duration: 1s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; animation-direction: alternate;');
+    boardLeds[1].setAttribute('style', 'fill: hsl(6, 70%, 23%); animation-name: glow-red; animation-duration: 1s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; animation-direction: alternate; animation-delay: 1s;');
+  } else {
+    // cancel toggling pulsating
+    boardLeds[1].setAttribute('style', '');
+    boardLeds[1].setAttribute('fill', ledsDefaultColor );
+    boardLeds[0].setAttribute('style', '')
+    boardLeds[0].setAttribute('fill', ledsDefaultColor );
+  }
+}
+
+boardButtons[0].addEventListener('click', function(e){
+  console.log('BTN clicked !');
+  ledPulsatingToggling = !ledPulsatingToggling;
+  toggleAndPulsateLEDs(); // start LEDs oscillator
+})
