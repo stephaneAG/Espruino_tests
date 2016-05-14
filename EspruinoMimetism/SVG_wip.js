@@ -217,3 +217,38 @@ boardButtons[0].addEventListener('click', function(e){
   ledPulsatingToggling = !ledPulsatingToggling;
   toggleAndPulsateLEDs(); // start LEDs oscillator
 })
+
+
+
+
+
+// creating a board object & populating it with the stuff from the SVG
+var board = {
+  pins: [],
+  buttons: [],
+  leds: []
+}
+// populate the pins
+for (var i=0; i < boardPins.length; i++){
+  console.log( boardPins[i].id.substr( boardPins[i].id.indexOf('_x5F__x5F_')+'_x5F__x5F_'.length ) )
+  board.pins.push( {svgElement: boardPins[i], id: boardPins[i].id, label: boardPins[i].id.substr( boardPins[i].id.indexOf('_x5F__x5F_')+'_x5F__x5F_'.length ), connectedTo: [], supports: [] } )
+}
+// populate the leds - todo: fix the label ;p
+for (var i=0; i < boardLeds.length; i++){
+  console.log( boardLeds[i].id.substr( boardLeds[i].id.indexOf('_x5F__x5F_')+'_x5F__x5F_'.length ) )
+  board.leds.push( {svgElement: boardLeds[i], id: boardLeds[i].id, label: boardLeds[i].id.substr( boardLeds[i].id.indexOf('_x5F__x5F_')+'_x5F__x5F_'.length ), connectedTo: [], defaultColor: ledsDefaultColor /*color: */ } )
+}
+// populate the buttons - todo: fix the label ;p
+for (var i=0; i < boardButtons.length; i++){
+  console.log( boardButtons[i].id.substr( boardButtons[i].id.indexOf('_x5F__x5F_')+'_x5F__x5F_'.length ) )
+  board.buttons.push( {svgElement: boardButtons[i], id: boardButtons[i].id, label: boardButtons[i].id.substr( boardButtons[i].id.indexOf('_x5F__x5F_')+'_x5F__x5F_'.length ), connectedTo: [], status: 'idle', handlers: [] } )
+}
+// make all that little world available as 'board.<LABEL>'
+board.pins.forEach(function(pin){ board[pin.label.toUpperCase()] = pin; })
+board.leds.forEach(function(led){ board[led.label.toUpperCase()] = led; })
+board.buttons.forEach(function(button){ board[button.label.toUpperCase()] = button; })
+// also, as a neat addition to the above ,our fcns could also be passed 'LABEL' to look for the corresponding pin
+// & if this is really needed / if I can't find an alternative hack, we could also pollute the window scope/namespace ;p
+board.pins.forEach(function(pin){ board[pin.label.toUpperCase()] = window[pin.label.toUpperCase()]  = pin; })
+board.leds.forEach(function(led){ board[led.label.toUpperCase()]  = window[led.label.toUpperCase()] = led; })
+board.buttons.forEach(function(button){ board[button.label.toUpperCase()] = window[button.label.toUpperCase()] = button; })
