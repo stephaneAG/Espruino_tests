@@ -48,6 +48,8 @@ boardButtons.length
 boardButtons[0].addEventListener('click', function(e){
   console.log('BTN clicked !');
 })
+// indicate that the button is actually interactive ( change the mouse appearance when hovering it )
+boardButtons[0].style.cursor = 'pointer'
 
 
 
