@@ -1,4 +1,4 @@
-######## Espruino AST & Cie
+###### Espruino AST & Cie
 
 The code & stuff present here relates to the ability to send the Espruino code via audio without any PSK, ..
 The test setup uses the Espruino on USB of a debugging laptop & the C11/serial4Rx pin to the tip of an audio jack ( TRRS )
@@ -19,3 +19,30 @@ What's yet to be tested:
 - using a TRRS cable to receive audio serial stuff as well as send some from tablet
 
 From the results of each of the above tests, a table 'll be written, describing the necessary audio setup adjustements
+
+
+----
+
+AST 's code is available here [AudioSerialTest](https://github.com/stephaneAG/AST)
+
+The code to use to send audio serial stuff is the following:  
+( R: turn off the oscillator before doing so, as it'll send gibberish to the Espruino pin otherwise - nice pin check ;p )
+```javascript
+AST.audio_serial_write('digitalWrite(LED3, 1);\n', function(){ console.log('data written !'); })
+```
+
+
+The Espruino code is the following:
+( see 'ASTevalCompanion.js' for way to prevent gibberish to be evaluated ;p )
+```javascript
+var dataBuff = '';
+  Serial4.setup(9600); // aka: use default Serial4 Rx pin ( C11 on original Espruino board )
+  Serial4.on('data', function(data){
+    dataBuff += data;
+    if ( dataBuff.indexOf('\n') !== -1 ){
+      print('>' + dataBuff); // prints perfectly EVERYTHING ^^
+      eval ( dataBuff ); // yup, "being [too] confident" ^^
+      dataBuff = ''; // clear/reset data buff
+    }
+  });
+```
