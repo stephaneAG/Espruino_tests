@@ -20,6 +20,10 @@ What's yet to be tested:
 
 From the results of each of the above tests, a table 'll be written, describing the necessary audio setup adjustements
 
+----
+
+The wirings for the above setup are the following:
+- [Audio Rx TRRS iMac->Espruino](https://123d.circuits.io/circuits/2161305-espruino-audio-rx-using-trrs-jack-for-imac-espruino)
 
 ----
 
