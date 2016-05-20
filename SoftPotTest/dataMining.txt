@@ -1,0 +1,551 @@
+// ==== SUM UP ====
+
+
+area 1:       0° ->  22.5° => 0.99928282597    999 28282597 to
+area 2:    22.5° ->    45° => 0.98634317540    986 34317540 to
+area 3:      45° ->  67.5° => 0.95851071946    958 51071946 to
+area 4:    67.5° ->    90° => 0.91969176775    919 69176775 to
+area 5:      90° -> 112.5° => 0.90821698329    908 21698329 to
+area 6:   112.5° ->   135° => 0.86524757763    865 24757763 to
+area 7:     135° -> 157.5° => 0.84425116350    844 25116350 to
+area 8:   157.5° ->   180° => 0.82203402761    822 03402761 to
+area 9:     180° -> 202.5° => 0.77882047760    778 82047760 to
+area 10:  202.5° ->   225° => 0.74634927901    746 34927901 to
+area 11:    225° -> 247.5° => 0.72120241092    721 20241092 to
+area 12:  247.5° ->   270° => 0.68018616006    680 18616006 to
+area 13:    270° -> 292.5° => 0.65577172503    655 77172503 to
+area 14:  292.5° ->   315° => 0.63233386739    632 33386739 to
+area 15:    315° -> 337.5° => 0.60132753490    601 32753490 to
+area 16:  337.5° ->   360° => 0.56519417105    565 19417105 to 0.53662928206
+
+
+0.99928282597 - 0.98634317540 = 0,012939651
+0.98634317540 - 0.95851071946 = 0,027832456
+0.95851071946 - 0.91969176775 = 0,038818952
+0.91969176775 - 0.90821698329 = 0,011474784
+0.90821698329 - 0.86524757763 = 0,042969406
+0.86524757763 - 0.84425116350 = 0,020996414
+0.84425116350 - 0.82203402761 = 0,022217136
+0.82203402761 - 0.77882047760 = 0,043213550
+0.77882047760 - 0.74634927901 = 0,032471199
+0.74634927901 - 0.72120241092 = 0,025146868
+0.72120241092 - 0.68018616006 = 0,041016251
+0.68018616006 - 0.65577172503 = 0,024414435
+0.65577172503 - 0.63233386739 = 0,023437858
+0.63233386739 - 0.60132753490 = 0,031006332
+0.60132753490 - 0.56519417105 = 0,036133364
+0.56519417105 - 0.53662928206 = 0,028564889
+                              = 0,462653545 ===> sum of all the aboves
+                          /16 = 0,028915847 ===> range of variation we have for a 22.5° area
+0.99928282597 - 0.53662928206 = 0,462653544
+0,012939651+0,027832456+0,038818952+0,011474784+0,042969406+0,020996414+0,022217136+0,043213550+0,032471199+0,025146868+0,041016251+0,024414435+0,023437858+0,031006332+0,036133364+0,028564889
+
+
+
+
+---- 360°/16 -> 16 areas of 22.5° ----
+-- untouched --
+0.99977111467 while runnig from Espruino Vbat pin, while connected & getting power from on USB
+
+
+-- area 1 --
+0.99928282597 <---..
+curr softpot read: 0.99928282597
+curr softpot read: 0.99977111467
+curr softpot read: 0.99635309376
+curr softpot read: 0.99781795986
+curr softpot read: 0.99977111467
+curr softpot read: 0.99293507286
+curr softpot read: 0.99659723811
+curr softpot read: 0.99977111467
+curr softpot read: 0.99122606240
+curr softpot read: 0.99977111467
+curr softpot read: 0.99024948500
+curr softpot read: 0.99659723811
+curr softpot read: 0.99977111467
+curr softpot read: 0.99122606240
+curr softpot read: 0.99610894941
+curr softpot read: 0.98780804150
+curr softpot read: 0.99000534065
+curr softpot read: 0.98780804150
+curr softpot read: 0.98976119630
+curr softpot read: 0.99977111467
+-- area 2 --
+0.98634317540 <---..
+curr softpot read: 0.98634317540
+curr softpot read: 0.98292515449
+curr softpot read: 0.99293507286
+curr softpot read: 0.98243686579
+curr softpot read: 0.98976119630
+curr softpot read: 0.97926298924
+curr softpot read: 0.98097199969
+curr softpot read: 0.98683146410
+curr softpot read: 0.99073777370
+curr softpot read: 0.97608911268
+curr softpot read: 0.96876478217
+curr softpot read: 0.97560082398
+curr softpot read: 0.96827649347
+curr softpot read: 0.97047379262
+curr softpot read: 0.96485847257
+curr softpot read: 0.95802243076
+curr softpot read: 0.95216296635
+curr softpot read: 0.96070801861
+curr softpot read: 0.96632333867
+curr softpot read: 0.95948729686
+curr softpot read: 0.99977111467
+-- area 3 --
+0.95851071946 <---..
+curr softpot read: 0.95851071946
+curr softpot read: 0.94947737850
+curr softpot read: 0.96461432822
+curr softpot read: 0.95655756466
+curr softpot read: 0.95020981155
+curr softpot read: 0.94019989318
+curr softpot read: 0.93849088273
+curr softpot read: 0.94093232623
+curr softpot read: 0.94532692454
+curr softpot read: 0.93507286182
+curr softpot read: 0.94532692454
+curr softpot read: 0.94264133669
+curr softpot read: 0.94044403753
+curr softpot read: 0.92164492256
+curr softpot read: 0.95606927595
+curr softpot read: 0.93507286182
+curr softpot read: 0.99977111467
+-- area 4 --
+0.91969176775 <---..
+curr softpot read: 0.91969176775
+curr softpot read: 0.92481879911
+curr softpot read: 0.92335393301
+curr softpot read: 0.92359807736
+curr softpot read: 0.92115663385
+curr softpot read: 0.92481879911
+curr softpot read: 0.94190890363
+curr softpot read: 0.91090257114
+curr softpot read: 0.91700617990
+curr softpot read: 0.91554131380
+curr softpot read: 0.90064850843
+curr softpot read: 0.89967193102
+curr softpot read: 0.90675211718
+curr softpot read: 0.89576562142
+curr softpot read: 0.91090257114
+curr softpot read: 0.89747463187
+curr softpot read: 0.99977111467
+-- area 5 --
+0.90821698329 <---..
+curr softpot read: 0.90821698329
+curr softpot read: 0.89015030136
+curr softpot read: 0.89747463187
+curr softpot read: 0.90138094148
+curr softpot read: 0.90577553978
+curr softpot read: 0.89405661097
+curr softpot read: 0.88331425955
+curr softpot read: 0.87696650644
+curr softpot read: 0.88258182650
+curr softpot read: 0.88722056916
+curr softpot read: 0.86939803158
+curr softpot read: 0.87745479514
+curr softpot read: 0.87550164034
+curr softpot read: 0.90675211718
+curr softpot read: 0.86768902113
+curr softpot read: 0.99977111467
+-- area 6 --
+0.86524757763 <---..
+curr softpot read: 0.86524757763
+curr softpot read: 0.85328450446
+curr softpot read: 0.87403677424
+curr softpot read: 0.86085297932
+curr softpot read: 0.85621423666
+curr softpot read: 0.85499351491
+curr softpot read: 0.85694666971
+curr softpot read: 0.86280613412
+curr softpot read: 0.85059891660
+curr softpot read: 0.83839169909
+curr softpot read: 0.84058899824
+curr softpot read: 0.84791332875
+curr softpot read: 0.82374303807
+curr softpot read: 0.99977111467
+-- area 7 --
+0.84425116350 <---..
+curr softpot read: 0.84425116350
+curr softpot read: 0.84156557564
+curr softpot read: 0.83765926604
+curr softpot read: 0.83717097734
+curr softpot read: 0.83595025558
+curr softpot read: 0.84278629739
+curr softpot read: 0.83839169909
+curr softpot read: 0.82960250247
+curr softpot read: 0.82764934767
+curr softpot read: 0.82862592507
+curr softpot read: 0.81007095445
+curr softpot read: 0.82545204852
+curr softpot read: 0.81886015106
+curr softpot read: 0.81934843976
+curr softpot read: 0.82178988326
+curr softpot read: 0.81007095445
+curr softpot read: 0.99977111467
+-- area 8 --
+0.82203402761 <---..
+curr softpot read: 0.82203402761
+curr softpot read: 0.81837186236
+curr softpot read: 0.80616464484
+curr softpot read: 0.81934843976
+curr softpot read: 0.80347905699
+curr softpot read: 0.79664301518
+curr softpot read: 0.79517814908
+curr softpot read: 0.78687724116
+curr softpot read: 0.78297093156
+curr softpot read: 0.79200427252
+curr softpot read: 0.79298084992
+curr softpot read: 0.78297093156
+curr softpot read: 0.78321507591
+curr softpot read: 0.78028534370
+curr softpot read: 0.99977111467
+-- area 9 --
+0.77882047760 <---..
+curr softpot read: 0.77882047760
+curr softpot read: 0.76319523918
+curr softpot read: 0.76881055924
+curr softpot read: 0.76661326009
+curr softpot read: 0.77442587930
+curr softpot read: 0.76881055924
+curr softpot read: 0.76685740444
+curr softpot read: 0.75831235217
+curr softpot read: 0.75684748607
+curr softpot read: 0.74464026855
+curr softpot read: 0.74561684596
+curr softpot read: 0.75196459906
+curr softpot read: 0.75782406347
+curr softpot read: 0.75074387731
+curr softpot read: 0.75831235217
+curr softpot read: 0.75587090867
+curr softpot read: 0.99977111467
+-- area 10 --
+0.74634927901  <---..
+curr softpot read: 0.74634927901
+curr softpot read: 0.73633936064
+curr softpot read: 0.74561684596
+curr softpot read: 0.74927901121
+curr softpot read: 0.73804837109
+curr softpot read: 0.72755016403
+curr softpot read: 0.73682764934
+curr softpot read: 0.71680781261
+curr softpot read: 0.73218890669
+curr softpot read: 0.72828259708
+curr softpot read: 0.75098802166
+curr softpot read: 0.99977111467
+-- area 11 --
+0.72120241092 <---..
+curr softpot read: 0.72120241092
+curr softpot read: 0.72315556572
+curr softpot read: 0.73560692759
+curr softpot read: 0.73438620584
+curr softpot read: 0.72950331883
+curr softpot read: 0.71265735866
+curr softpot read: 0.70728618295
+curr softpot read: 0.72901503013
+curr softpot read: 0.71729610131
+curr softpot read: 0.71046005951
+curr softpot read: 0.69971770809
+curr softpot read: 0.69825284199
+curr softpot read: 0.69166094453
+curr softpot read: 0.68091859311
+curr softpot read: 0.67774471656
+curr softpot read: 0.99977111467
+-- area 12 --
+0.68018616006  <---..
+curr softpot read: 0.68018616006
+curr softpot read: 0.68262760357
+curr softpot read: 0.68946364538
+curr softpot read: 0.68531319142
+curr softpot read: 0.67237354085
+curr softpot read: 0.67530327306
+curr softpot read: 0.68848706797
+curr softpot read: 0.67261768520
+curr softpot read: 0.67432669565
+curr softpot read: 0.67310597390
+curr softpot read: 0.66602578774
+curr softpot read: 0.66626993209
+curr softpot read: 0.99977111467
+-- area 13 --
+0.65577172503  <---..
+curr softpot read: 0.65577172503
+curr softpot read: 0.65308613717
+curr softpot read: 0.65918974593
+curr softpot read: 0.66236362249
+curr softpot read: 0.67359426260
+curr softpot read: 0.67090867475
+curr softpot read: 0.66334019989
+curr softpot read: 0.65406271457
+curr softpot read: 0.65845731288
+curr softpot read: 0.64527351796
+curr softpot read: 0.63965819790
+curr softpot read: 0.63257801174
+curr softpot read: 0.64332036316
+curr softpot read: 0.63086900129
+curr softpot read: 0.63624017700
+curr softpot read: 0.63648432135
+curr softpot read: 0.99977111467
+-- area 14 --
+0.63233386739 <---..
+curr softpot read: 0.62891584649
+curr softpot read: 0.63233386739
+curr softpot read: 0.64112306401
+curr softpot read: 0.62232394903
+curr softpot read: 0.62085908293
+curr softpot read: 0.62110322728
+curr softpot read: 0.62159151598
+curr softpot read: 0.61866178377
+curr softpot read: 0.62110322728
+curr softpot read: 0.61084916456
+curr softpot read: 0.60132753490
+curr softpot read: 0.59620050354
+curr softpot read: 0.99977111467
+-- area 15 --
+0.60132753490 <---..
+curr softpot read: 0.60132753490
+curr softpot read: 0.60035095750
+curr softpot read: 0.59961852445
+curr softpot read: 0.60059510185
+curr softpot read: 0.58692301823
+curr softpot read: 0.58789959563
+curr softpot read: 0.58838788433
+curr softpot read: 0.57691309987
+curr softpot read: 0.56665903715
+curr softpot read: 0.59620050354
+curr softpot read: 0.56910048065
+curr softpot read: 0.99977111467
+-- area 16 -- 
+0.56519417105 <---> 0.53662928206
+curr softpot read: 0.57911039902
+curr softpot read: 0.56519417105
+curr softpot read: 0.55957885099
+curr softpot read: 0.57129777981
+curr softpot read: 0.56958876935
+curr softpot read: 0.56421759365
+curr softpot read: 0.55030136568
+curr softpot read: 0.56665903715
+curr softpot read: 0.55005722133
+curr softpot read: 0.53931486991
+curr softpot read: 0.55005722133
+curr softpot read: 0.54883649958
+curr softpot read: 0.54541847867
+curr softpot read: 0.53662928206
+curr softpot read: 0.99977111467
+
+
+---- CCW twice ----
+
+curr softpot read: 0.53931486991
+curr softpot read: 0.53809414816
+curr softpot read: 0.54761577782
+curr softpot read: 0.54688334477
+curr softpot read: 0.55323109788
+curr softpot read: 0.54859235523
+curr softpot read: 0.56250858319
+curr softpot read: 0.55786984054
+curr softpot read: 0.57203021286
+curr softpot read: 0.56372930495
+curr softpot read: 0.56250858319
+curr softpot read: 0.55860227359
+curr softpot read: 0.57154192416
+curr softpot read: 0.57715724422
+curr softpot read: 0.59497978179
+curr softpot read: 0.58545815213
+curr softpot read: 0.58692301823
+curr softpot read: 0.59815365835
+curr softpot read: 0.61182574196
+curr softpot read: 0.59815365835
+curr softpot read: 0.59864194705
+curr softpot read: 0.61768520637
+curr softpot read: 0.62745098039
+curr softpot read: 0.62281223773
+curr softpot read: 0.63038071259
+curr softpot read: 0.63770504310
+curr softpot read: 0.59888609140
+curr softpot read: 0.63160143434
+curr softpot read: 0.62769512474
+curr softpot read: 0.63135728999
+curr softpot read: 0.64014648661
+curr softpot read: 0.63916990920
+curr softpot read: 0.62989242389
+curr softpot read: 0.63868162050
+curr softpot read: 0.64332036316
+curr softpot read: 0.65406271457
+curr softpot read: 0.65503929198
+curr softpot read: 0.66456092164
+curr softpot read: 0.68580148012
+curr softpot read: 0.67042038605
+curr softpot read: 0.66553749904
+curr softpot read: 0.73731593804
+curr softpot read: 0.67676813916
+curr softpot read: 0.69434653238
+curr softpot read: 0.68409246967
+curr softpot read: 0.68653391317
+curr softpot read: 0.69410238803
+curr softpot read: 0.69971770809
+curr softpot read: 0.69336995498
+curr softpot read: 0.71631952391
+curr softpot read: 0.71778439002
+curr softpot read: 0.71387808041
+curr softpot read: 0.71827267872
+curr softpot read: 0.73389791714
+curr softpot read: 0.73682764934
+curr softpot read: 0.73560692759
+curr softpot read: 0.73853665980
+curr softpot read: 0.75001144426
+curr softpot read: 0.75538261997
+curr softpot read: 0.74854657816
+curr softpot read: 0.75220874341
+curr softpot read: 0.76368352788
+curr softpot read: 0.77296101319
+curr softpot read: 0.76466010528
+curr softpot read: 0.78467994201
+curr softpot read: 0.78956282902
+curr softpot read: 0.79908445868
+curr softpot read: 0.80054932478
+curr softpot read: 0.79005111772
+curr softpot read: 0.80738536659
+curr softpot read: 0.81348897535
+curr softpot read: 0.79053940642
+curr softpot read: 0.80323491264
+curr softpot read: 0.80909437705
+curr softpot read: 0.81251239795
+curr softpot read: 0.81983672846
+curr softpot read: 0.81886015106
+curr softpot read: 0.83204394598
+curr softpot read: 0.84327458609
+curr softpot read: 0.83668268863
+curr softpot read: 0.84791332875
+curr softpot read: 0.84693675135
+curr softpot read: 0.85499351491
+curr softpot read: 0.85889982452
+curr softpot read: 0.86500343327
+curr softpot read: 0.87061875333
+curr softpot read: 0.86451514457
+curr softpot read: 0.93214312962
+curr softpot read: 0.88331425955
+curr softpot read: 0.89039444571
+curr softpot read: 0.88331425955
+curr softpot read: 0.90577553978
+curr softpot read: 0.89893949797
+curr softpot read: 0.89039444571
+curr softpot read: 0.91163500419
+curr softpot read: 0.89210345616
+curr softpot read: 0.89527733272
+curr softpot read: 0.91432059205
+curr softpot read: 0.90089265278
+curr softpot read: 0.91505302510
+curr softpot read: 0.99977111467
+curr softpot read: 0.91651789120
+curr softpot read: 0.92188906691
+curr softpot read: 0.92164492256
+curr softpot read: 0.93043411917
+curr softpot read: 0.93482871747
+curr softpot read: 0.93556115053
+curr softpot read: 0.94190890363
+curr softpot read: 0.94728007934
+curr softpot read: 0.95753414206
+curr softpot read: 0.94703593499
+curr softpot read: 0.94093232623
+curr softpot read: 0.96241702906
+curr softpot read: 0.99977111467
+curr softpot read: 0.96876478217
+curr softpot read: 0.99464408331
+curr softpot read: 0.99391165026
+curr softpot read: 0.99952697032
+curr softpot read: 0.99977111467
+curr softpot read: 0.99781795986
+curr softpot read: 0.83863584344
+curr softpot read: 0.78028534370
+curr softpot read: 0.76881055924
+curr softpot read: 0.75880064087
+curr softpot read: 0.76026550698
+curr softpot read: 0.75489433127
+curr softpot read: 0.72217898832
+curr softpot read: 0.53882658121
+curr softpot read: 0.53565270466
+curr softpot read: 0.57154192416
+curr softpot read: 0.55933470664
+curr softpot read: 0.56812390325
+curr softpot read: 0.56421759365
+curr softpot read: 0.58301670862
+curr softpot read: 0.57178606851
+curr softpot read: 0.57325093461
+curr softpot read: 0.58838788433
+curr softpot read: 0.58887617303
+curr softpot read: 0.59424734874
+curr softpot read: 0.60010681315
+curr softpot read: 0.62085908293
+curr softpot read: 0.62110322728
+curr softpot read: 0.62720683604
+curr softpot read: 0.64771496147
+curr softpot read: 0.64307621881
+curr softpot read: 0.63428702220
+curr softpot read: 0.64185549706
+curr softpot read: 0.64722667277
+curr softpot read: 0.65235370412
+curr softpot read: 0.64600595101
+curr softpot read: 0.64820325017
+curr softpot read: 0.65333028152
+curr softpot read: 0.66700236514
+curr softpot read: 0.67359426260
+curr softpot read: 0.68458075837
+curr softpot read: 0.67823300526
+curr softpot read: 0.67920958266
+curr softpot read: 0.69410238803
+curr softpot read: 0.69214923323
+curr softpot read: 0.68482490272
+curr softpot read: 0.69581139848
+curr softpot read: 0.69874113069
+curr softpot read: 0.71241321431
+curr softpot read: 0.73340962844
+curr softpot read: 0.71973754482
+curr softpot read: 0.73047989623
+curr softpot read: 0.73975738155
+curr softpot read: 0.75001144426
+curr softpot read: 0.76026550698
+curr softpot read: 0.76173037308
+curr softpot read: 0.77344930189
+curr softpot read: 0.77296101319
+curr softpot read: 0.78467994201
+curr softpot read: 0.79346913862
+curr softpot read: 0.78467994201
+curr softpot read: 0.80054932478
+curr softpot read: 0.78663309681
+curr softpot read: 0.81519798580
+curr softpot read: 0.81739528496
+curr softpot read: 0.84327458609
+curr softpot read: 0.82764934767
+curr softpot read: 0.84669260700
+curr softpot read: 0.84278629739
+curr softpot read: 0.87110704203
+curr softpot read: 0.85401693751
+curr softpot read: 0.86012054627
+curr softpot read: 0.82764934767
+curr softpot read: 0.85670252536
+curr softpot read: 0.86598001068
+curr softpot read: 0.86964217593
+curr softpot read: 0.87550164034
+curr softpot read: 0.88258182650
+curr softpot read: 0.90162508583
+curr softpot read: 0.89796292057
+curr softpot read: 0.89747463187
+curr softpot read: 0.89600976577
+curr softpot read: 0.89698634317
+curr softpot read: 0.90772869459
+curr softpot read: 0.91163500419
+curr softpot read: 0.90675211718
+curr softpot read: 0.91944762340
+curr softpot read: 0.92506294346
+curr softpot read: 0.93189898527
+curr softpot read: 0.94679179064
+curr softpot read: 0.95631342030
+curr softpot read: 0.94850080109
+curr softpot read: 0.96339360646
+curr softpot read: 0.98487830930
+curr softpot read: 0.97901884489
+curr softpot read: 0.99073777370
+curr softpot read: 0.98878461890
+curr softpot read: 0.99513237201
+curr softpot read: 0.99977111467
