@@ -9,10 +9,11 @@ Espruino Vbat o-----●----|___|-----o pin 1
                    '-' 
                     |
 Espruino A0 o-------●--------------o pin 2
+                          ___
+Espruino Gnd o-----------|___|-----o pin 3
+                          10K
 
-Espruino Gnd o---------------------o pin 3
-
-
+how to draw NPN's ^^
   _ |/
   	|↘
 
