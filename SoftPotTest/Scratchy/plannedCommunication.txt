@@ -1,3 +1,5 @@
+R: poc code for laptop -> http://stag.com/ScratchyWAA/playMp3.html
+
 Modus Operandi:
 
 Espruino-based peipheral         <-->        WebApp API         <-->         WebAudioAPI/<audio>
