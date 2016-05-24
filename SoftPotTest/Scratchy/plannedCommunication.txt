@@ -1,0 +1,78 @@
+Modus Operandi:
+
+Espruino-based peipheral         <-->        WebApp API         <-->         WebAudioAPI/<audio>
+
+1 - Espruino-based peipheral:
+- exposes parameters to be adjusted by the webApp API
+- pushes data to the webApp using its API
+- can be totally overwritten by the webApp API
+
+2 - WebApp API:
+- provides an abstract, higher level layer for working with the WebAudioAPI/<audio> stuff ( seek, reverse playback rate, .. )
+- forwards data from Espruino & use the abstract layer to "parse" it & adjust the WebAudioAPI/<audio> related stuff
+
+3 - WebAudioAPI/<audio>:
+- load audio
+- get reversed audio
+- create/start/remove/stop buffers when "scratching" ( reflect changes in data received from Espruino through abstract layer )
+- adjust playbackRate of the buffer(s) playing ( r: one of which may be mute .. )
+[- record audio continiously for later save & editing ? ]
+[- store .json files of "seek & play" chunks for a particular audio file]
+[- use the above .json files to D&D chunks & save an all new audio track from the "scratched audio loops" previously saved]
+
+
+--------
+
+
+Interactions between the nodes:
+
+- the Espruino sends an object containing the states of all the components connected to it
+{
+  turntable: {
+    state: 'idle', // or 'touched'
+    direction: 'static', // or 'CW' or 'CCW'
+    speed: 0, // the speed deduced from the voltage difference on the Espruino side
+  },
+  gain: 0.5, // the gain read from the gain pot
+  mix: 0, // the channel mix read from the mix pot ( 0 -> left channel only, 0.5 -> both channels, 1 -> right channel only )
+  // effects toggle & pots ? ;P
+}
+
+- it also exposes few parameters to be accessed/adjusted by the webApp API ( ~ user prefs )
+var usersPrefs = {
+  normal: {
+    potCheckInterval: potCheckInterval // how many times a second we check for touch
+    // which effects are tied to which toggles & pots ?
+  },
+  advanced: {
+    bridgeDiscardDelay: bridgeDiscardDelay // the time in which "bridging the gap" is accepted
+    untouchedVoltage: untouchedVoltage // voltage read when not touched
+    touchedThreshold: touchedThreshold // minimum voltage drop when touched
+    degStepVariation: degStepVariation // the minimum voltage change for 1°
+    areaVariationRange: areaVariationRange // the minimum voltage variation for 22.5°
+    bridgeBiggerSideMax: bridgeBiggerSideMax //area 1 max
+    bridgeBiggerSideMin: bridgeBiggerSideMin // area 1 min
+    bridgeLowerSideMax: bridgeLowerSideMax // area 16 max
+    bridgeLowerSideMin: bridgeLowerSideMin // area 16 min
+  }
+}
+
+
+
+- the webApp provides "audio helpers" objects:
+var turntableAudio = {
+  buffer: <AudioBufferSource> ?
+  reversedBuffer: <AudioBufferSource> ?
+  setPlaybackRate: function(playbackRate){
+   // should accept negative playback rate, to control both normal & reversed buffers at once
+   // we could use the sign of the value passed to know whether to use one or the other, & then adjust its playback rate
+  },
+  seek: function(time[, speed]){
+    // 'll be needed if we can't/don't use <audio> elements ( that provide this fcnality )
+    // used to go to a particular time in the turntableAudio
+    // if a "speed" value is passed, we shall "twen" the audio from current time to time passed & adjust the playback rate
+    // while doing so.
+    // also, while we "tween", if we "seek" to a time before the current one, the reversed buffer 'll be audible,
+    // while the normal buffer 'll be audible if we "seek" to a time after the current one
+  }
+}
