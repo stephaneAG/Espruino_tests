@@ -3,12 +3,12 @@
 // setup serial
 Serial4.setup(4800);
 
-// receive data --> the one currently working
+// receive data --> useful for debug
 Serial4.on('data', function(data){
   print( data );
 });
 
-// receive data
+// receive data --> R: line feed is Ctrl+J on the minitel keyboard :)
 /*
 var command = "";
 Serial4.on('data', function(data){
@@ -20,6 +20,77 @@ Serial4.on('data', function(data){
   }
 });
 */
+
+// wip char map
+var charMap = {
+  // special keys
+  
+  // mark keys
+  '¬': ',',
+  '¾': '>',
+  '': '',
+  '': '',
+  '': '',
+  '': '',
+  '': '',
+  // letter keys
+  'á': 'a',
+  'ú': 'z',
+  'Å': 'E',
+  'Ò': 'R',
+  'Ô': 'T',
+  'ù': 'y',
+  'õ': 'u',
+  'É': 'I',
+  'Ï': 'O',
+  'ð': 'p',
+  'Ñ': 'Q',
+  'ó': 's',
+  'ä': 'd',
+  'Æ': 'F',
+  'ç': 'g',
+  'è': 'h',
+  'Ê': 'J',
+  'ë': 'k',
+  'Ì': 'L',
+  'í': 'm',
+  '×': 'W',
+  'Ø': 'X',
+  'Ã': 'C',
+  'ö': 'v',
+  'â': 'b',
+  'î': 'n',
+  // number keys
+  '±': '1',
+  '²': '2',
+  '£': '#',
+  '´': '4',
+  '¥': '%',
+  '¦': '&',
+  '·': '7',
+  '¸': '8',
+  '©': ')',
+  'ª': '*',
+  'Û': '[',
+  'Þ': 'littleUpArrow',
+  'Ý': ']'
+}
+
+// logic:
+var rxBuffer = "";
+Serial4.on('data', function(data){
+  if ( data !== '\n') {
+    // replace char by one from map if it's registered & a replacement is provided
+    if( charMap[data] ) data = charMap[data]; // override it using corresponding replacement without looping ;)
+    // append to rx buffer
+    rxBuffer += data;
+  } else {
+    // display the content of the rx buffer & reset it
+    print( 'received: ' + rxBuffer );
+    rxBuffer = "";
+  }
+});
+
 
 // handle parity errors
 Serial4.on('parity', function(){
