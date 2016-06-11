@@ -1,0 +1,155 @@
+// R: the following 'll be used to build a char map from my model of Minitel
+//    during the tests, those chars were received at 4800 baud using the original Espruino board :)
+
+// R: the "French Mode" is a special ASCII version replacing
+//    # ^ [ ] { } | ~
+// by
+//    £ ç ^ ° § é è ù
+//        |
+// R:      -> bottom of a little arrow pointing upward
+
+// shortcuts ( ex: Ctrl-T then A )
+fnct+T then A->choose the mode(or F, eventually): Û?ú
+fnct+T then E->toggle local keystrokes echo: N/A
+fcnt+P then <baudrate>->choose the transfer speed between: 1=>1200 baud
+                                                           3=>300(0?) baud
+                                                           4=>4800 baud
+                                                           9=>9600 baud
+
+// special keys ( R: neither ctrl nor shift keys send chars over the serial line )
+connexionFin: N/A
+connexionFin+ctrl->Brk:
+fnct: N/A
+sommaire:   ÏP
+sommaire+shift->^: N/A
+annulation: ÏÑ
+annulation+shift: \
+annulation+ctrl->£: N/A
+retour:     ÏÒ
+retour+shift->OE: N/A
+retour+ctrl->oe: N/A
+repetition: ÏS
+repetition+shift: {
+guide:      Ïí
+guide+shift->..: N/A
+correction: Ïl
+correction+shift->§: N/A
+correction+ctrl->ç: N/A
+suite:      Ïî
+suite+shift->`: N/A
+suite+ctrl->Beta: N/A
+envoi:      ÏM
+envoi+shift: }
+
+esc: empty char ? ( the print call displays nothing except a new line with prompt )
+,: ¬
+,+shift: <
+.: .
+.+shift->>: ¾
+': '
+'+shift->@: À
+;: »
+;+shift: + 
+-: -
+-+shift: ½
+:: :
+:+shift: ª
+?: ?
+?+shift->/: ¯
+toBottomLeftArrow->pushes the prompt downward ? ..
+toBottomLeftArrow+shift->go to top left corner on the minitel screen: ÛH
+toBottomLeftArrow+ctrl->erase the minitel screen: Û²Ê
+upArrow: 'ÛA '
+upArrow+shift->Sup.L(delete the current line): ÛM
+downArrow: 'ÛB '
+downArrow+shift->Ins.L(add a new line above current line & position the cursor there): ÛÌ
+leftArrow: 'ÛD '
+leftArrow+shift->Sup.C(delete the char under the cursor position on the minitel screen): ÛP
+leftArrow+ctrl->Del(???): ÿ
+rightArrow: 'ÛÃ '
+rightArrow+shift->Ins.C(???): Û´l
+
+// key      ctrl+key      shift+key
+a: á
+a+shift: A
+z: ú
+z+shift: Z
+e: e
+e+shift->E: Å
+r: r
+r+shift->R: Ò
+t: t
+t+shift->T: Ô
+y: ù
+y+shift: Y
+u: õ
+u+shift: U
+i: i
+i+shift->I: É
+i+ctrl->Tab: display a tab on the minitel screen
+o: o
+o+shift->O: Ï
+p: ð
+p+shift: P 
+
+q: q
+q+shift->Q: Ñ
+s: ó
+s+shift:S
+d: ä
+d+shift: D
+f: f
+f+shift->F: Æ
+g: ç
+g+shift:G 
+h: è
+h+shift: H
+h+ctrl->BS(go back one char at a time on the minitel screen): '\n' without new prompt on the espruino console
+j: j
+j+shift->J: Ê
+j+ctrl->LF(send a line feed char over the serial connection): '\n' ( or maybe '\r\n' ? )
+k: ë
+k+shift: K
+l: l
+l+shift->L: Ì
+m: í
+m+shift: M
+
+w: w
+w+shift->W: ×
+x: x
+x+shift->X: Ø
+x+ctrl->Can(draw blocks on the minitel screen ^^): '\n' sent over serial as well
+c: c
+c+shift->C: Ã
+v: ö
+v+shift:V
+b: â
+b+shift: B
+n: î
+n+shift: N
+
+1: ±
+1+shift: !
+2: ²
+2+shift: "
+3: 3
+3+shift->#: £
+4: ´
+4+shift: $
+5: 5
+5+shift->%: ¥
+6: 6
+6+shift->&: ¦
+7: ·
+7+shift: '
+8: ¸
+8+shift: (
+9: 9
+9+shift->): ©
+*: ª
+*+shift->[: Û
+0: 0
+0+shift->littleUpArrow: Þ
+#: £
+#+shift->]: Ý
