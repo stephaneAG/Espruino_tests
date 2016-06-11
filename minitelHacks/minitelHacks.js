@@ -23,15 +23,37 @@ Serial4.on('data', function(data){
 
 // wip char map
 var charMap = {
+  // shortcuts
+  'Û?ú': 'modeSelect',
   // special keys
-  
+  'ÏP': 'summary',
+  'ÏÑ': 'cancel',
+  'ÏÒ': 'back',
+  'ÏS': 'repeat',
+  'Ïí': 'guide',
+  'Ïl': 'correction',
+  'Ïî': 'forward',
+  'ÏM': 'send',
   // mark keys
   '¬': ',',
   '¾': '>',
-  '': '',
-  '': '',
-  '': '',
-  '': '',
+  'À': '@',
+  '»': ';',
+  '½': '=',
+  'ª': '*',
+  '¯': '/',
+  // arrow keys
+  'ÛH':   'goTopLeft',
+  'Û²Ê':  'eraseScreen',
+  'ÛA ':  'upArrow',
+  'ÛM':   'SuppressLine',
+  'ÛB ':  'downArrow',
+  'ÛÌ':   'insertLine',
+  'ÛD ':  'leftArrow',
+  'ÛP':   'suppressChar',
+  'ÿ':    'delete',
+  'ÛÃ ':  'rightArrow',
+  'Û´l ': 'insertChar',
   '': '',
   // letter keys
   'á': 'a',
@@ -74,7 +96,7 @@ var charMap = {
   'Û': '[',
   'Þ': 'littleUpArrow',
   'Ý': ']'
-}
+};
 
 // logic:
 var rxBuffer = "";
