@@ -1,7 +1,8 @@
 // R: to connect to the minitel over serial
 
 // setup serial
-Serial4.setup(4800);
+//Serial4.setup(4800);
+Serial4.setup(4800, {btyesize: 8, parity: 'odd'}); // parity needs ?
 
 // receive data --> useful for debug
 Serial4.on('data', function(data){
@@ -22,6 +23,10 @@ Serial4.on('data', function(data){
 */
 
 // wip char map
+// R: to add:
+// - ²J  -> when hitting Ctrl+toBottomLeftArrow(ErasePage)
+//
+//
 var charMap = {
   // shortcuts
   'Û?ú': 'modeSelect',
@@ -108,6 +113,7 @@ Serial4.on('data', function(data){
   } else {
     // display the content of the rx buffer & reset it
     print( 'received: ' + rxBuffer );
+    eval( rxBuffer ); // "dangerous" ..
     rxBuffer = "";
   }
 });
@@ -119,8 +125,8 @@ Serial4.on('parity', function(){
 });
 
 
-// the following js is a try to convert the below Arduino code
-// R: the B001111111 is Arduino specific !
+// the following js is a try to convert the below Arduino code, but it's NOT working :/ ..
+// is the B011.. line the only one guilty ? ;p ..
 
 function modifyParity(c){
   var byte = 1 << 6;
