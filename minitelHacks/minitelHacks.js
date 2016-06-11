@@ -54,7 +54,6 @@ var charMap = {
   'ÿ':    'delete',
   'ÛÃ ':  'rightArrow',
   'Û´l ': 'insertChar',
-  '': '',
   // letter keys
   'á': 'a',
   'ú': 'z',
