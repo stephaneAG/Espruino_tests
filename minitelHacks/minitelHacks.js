@@ -1,11 +1,40 @@
+// R: to connect to the minitel over serial
+
+// setup serial
+Serial4.setup(4800);
+
+// receive data --> the one currently working
+Serial4.on('data', function(data){
+  print( data );
+});
+
+// receive data
+/*
+var command = "";
+Serial4.on('data', function(data){
+  command += data;
+  if( command.indexOf("\n") ){command = ""; }
+  else {
+    print( command );
+    // if command === 'someStuff', do stg ..
+  }
+});
+*/
+
+// handle parity errors
+Serial4.on('parity', function(){
+  print( 'configured parity bit does not match the received bits one' );
+});
+
+
 // the following js is a try to convert the below Arduino code
 // R: the B001111111 is Arduino specific !
 
 function modifyParity(c){
   var byte = 1 << 6;
   var p = false; // boolean
-  //var c &= B01111111; // clear out bits Arduino specific -> TO CHANGE !!!
-  var c = c & B01111111;
+  //var c &= B01111111; // clear out bits ( Arduino specific ? )
+  var c = c & B01111111; // alternative syntax allowed in javascript ?
   while(i){
     if( c & i ){
      p = !p;
@@ -39,13 +68,13 @@ function SerialWrite(buffer){
 /*
 original Arduino code
 
-/*
+
  * This program is free software. It comes without any warranty, to
  * the extent permitted by applicable law. You can redistribute it
  * and/or modify it under the terms of the CC0 license (French version).
  * See http://vvlibri.org/fr/licence/cc0/10/fr/legalcode for more details.
- */
-
+*/
+/*
 void setup() {
     Serial.begin(4800);
     sendMessage("\r\t\t\t\t");
