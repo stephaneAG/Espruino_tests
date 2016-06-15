@@ -5,10 +5,10 @@ If having troubles with the process of pairing a new device using the OS bluetoo
 - 1: get infos on the bluetooth adapter ( if needed ): ```hciconfig```
 - 2: list the nearby bluetooth devices: ```hcitool scan```
 - 3: pair with a device: ```bluez-simple-agent hci0 <addr>``` ( 'll ask for the pairing key )
-- 3bis: to unpair ( if needed ): ```bluez-simple-agent hci0 <addr> remove```
+- 3bis: to unpair ( if needed ): ```bluez-simple-agent hci0 <addr> remove```  
 - 4: to handle setup & coordination of serial data transfer, edit the ```/etc/bluetooth/rfcomm.conf``` as follows:  
 
-     ```
+     ```bash
      rfcomm0 {    
        bind no;  
        device <addr>;  
