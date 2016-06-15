@@ -25,15 +25,16 @@ If having troubles with the process of pairing a new device using the OS bluetoo
 ##### easily connecting on Ubuntu 14.04
 Instead of using ```sudo rfcomm connect <index>```, we can tweak a little the ```/etc/bluetooth/rfcomm.conf``` as follows:  
 
-    ```bash
-    #@Tefspruino@
-     rfcomm0 {    
-       bind no;  
-       device <addr>;  
-       channel 1;  
-       comment 'Serial Port';  
-     }  
-     ```  
+```bash
+#@Tefspruino@
+rfcomm0 {    
+  bind no;  
+  device <addr>;  
+  channel 1;  
+  comment 'Serial Port';  
+}  
+```  
+
 Once the above is done, we can make use of the ```connectByName``` script present in this repo
 Just pass a device name, and it'll look for that name in the ```/etc/bluetooth/rfcomm.conf``` & get the related device index
 Examples:  
