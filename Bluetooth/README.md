@@ -5,7 +5,7 @@ If having troubles with the process of pairing a new device using the OS bluetoo
 - 1: get infos on the bluetooth adapter ( if needed ): ```hciconfig```
 - 2: list the nearby bluetooth devices: ```hcitool scan```
 - 3: pair with a device: ```bluez-simple-agent hci0 <addr>``` ( 'll ask for the pairing key )
-- 3bis: to unpair ( if needed ): ```bluez-simple-agent hci0 <addr> remove```  
+- 3bis: to unpair ( if needed ): ```bluez-simple-agent hci0 <addr> remove```
 - 4: to handle setup & coordination of serial data transfer, edit the ```/etc/bluetooth/rfcomm.conf``` as follows:  
 
      ```bash
@@ -25,7 +25,7 @@ If having troubles with the process of pairing a new device using the OS bluetoo
 ##### easily connecting on Ubuntu 14.04
 Instead of using ```sudo rfcomm connect <index>```, we can tweak a little the ```/etc/bluetooth/rfcomm.conf``` as follows:  
 
-    ```
+    ```bash
     #@Tefspruino@
      rfcomm0 {    
        bind no;  
@@ -38,7 +38,7 @@ Once the above is done, we can make use of the ```connectByName``` script presen
 Just pass a device name, and it'll look for that name in the ```/etc/bluetooth/rfcomm.conf``` & get the related device index
 Examples:  
 
-```
+```bash
 $ ./connectByName.sh Tefspruino
 Looking for bluetooth device named: Tefspruino
 Device tag found, getting device id ..
