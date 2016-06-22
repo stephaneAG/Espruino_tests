@@ -1,5 +1,6 @@
 // connect to the minitel Tx & Rx
-Serial4.setup(4800, {btyesize: 8, parity: 'odd'}); // parity needs ?
+Serial4.setup(4800, {bytesize: 7, parity: 'odd'}); // parity needs ? being tested ..
+//Serial4.setup(9600, {bytesize: 8, parity: 'null'}); // untested yet
 
 // wip char map
 // R: to add:
