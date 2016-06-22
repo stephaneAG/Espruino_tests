@@ -104,3 +104,44 @@ Serial4.on('data', function(data){
 Serial4.on('parity', function(){
   print( 'configured parity bit does not match the received bits one' );
 });
+
+
+// build reverse charMap for Tx part ( occupies sapce, but avoiding many loops .. )
+var revCharMap = {};
+for( glyph in charMap) revCharMap[ charMap[glyph] ] = glyph;
+// same as for( glyph in charMap) revCharMap[ String(charMap[glyph]) ] = glyph;
+
+// quick helper fcn to parse by char, map & write
+// usage: minitel('Hello Digital World !')
+//        data to be sent:Hello Diçitál ×orlä !
+function minitelPrint(data){
+  var chunks = data.split(''); // split
+  for(var i=0; i<chunks.length; i++){ // parse
+    if( revCharMap[chunks[i]] ) chunks[i] = revCharMap[chunks[i]]; // override without looping ;)
+  }
+  data = chunks.join(''); // concat
+  //Serial4.write(data); // send
+  console.log('data to be sent:' + dataa);// fake send ;P
+}
+
+// quick helper fcn to parse by elem, map & write
+// usage: minitelSend(['goTopLeft', 'eraseScreen'])
+//        data to be sent:ÛHÛ²Ê
+function minitelSend(elems){
+  for(var i=0; i<elems.length; i++){
+    if( revCharMap[elems[i]] ) elems[i] = revCharMap[elems[i]]; // override without looping ;)
+  }
+  var data = elems.join(''); // concat
+  //Serial4.write(data); // send
+  // or 
+  //Serial4.write(elems); // send
+  console.log('data to be sent:' + data);// fake send ;P
+}
+
+// quick helper fcn to write directly
+// usage:
+//
+function minitelWrite(data){
+  //Serial4.write(data); // send
+  console.log('data to be sent:' + data);// fake send ;P
+}
