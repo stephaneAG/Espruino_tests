@@ -20,7 +20,7 @@ https://github.com/contiki-os/contiki/tree/master/platform/nrf52dk
 
 
 #### flash & program the "iDO / DO 003" smartwatch ( extracted from the Espruino forums: http://forum.espruino.com/conversations/280747/ ):
-3 wires for SWD ( DIA, CLK & GND )
+3 wires for SWD ( Serial Wire Debug )( DIA, CLK & GND )
 appears as a BLE UART device
 was programmed using OpenOCD 
 used an STM32F4Discovery board. You just pull 2 jumpers off, then it's 2 wires and ground
