@@ -71,7 +71,7 @@ P0.1 |	RST
 P0.2 |	CS
 
 Test code:
-```
+```javascript
 var BTN = D4; pinMode(BTN,"input_pullup");
 var initCmds = new Uint8Array([ 
   0xAe,
@@ -130,7 +130,7 @@ for (var i=0;i<4;i++) {
 ```
 
 Latest firmware
-```
+```javascript
 var initCmds = new Uint8Array([ 
 0xAe,0xD5, 0x80, 0xA8, 31,0xD3,0x0,
 0x40,0x8D,0x14,0x20,0x01, 0xA1,
