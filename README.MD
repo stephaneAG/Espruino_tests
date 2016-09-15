@@ -16,3 +16,7 @@ ex: with [SingleButtonCombinationMulticodesLock_Espruino.js](https://raw.githubu
 
 ~~Also, in a near future, we'll be able to use the following format for links, & have that Cake in all our Github & Cie projects~~ commit approved, now the following is handled in Espruino Web IDE starting from V0.59.0 :D  -->
 <a href="http://www.espruino.com/webide?codeurl=https://raw.githubusercontent.com/stephaneAG/Espruino_tests/master/SingleButtonCombinationMulticodesLock/SingleButtonCombinationMulticodesLock_Espruino.js" class="codelink" title="Send to Web IDE"> <img src="http://www.espruino.com/favicon.ico"></a>
+
+
+R: visit the following for C stuff :)
+http://jumspruino.jumware.com/docu/Extensions/index.html
