@@ -1,4 +1,12 @@
-##### easily pairing on Ubuntu 14.04
+some links that may get useful:
+http://forum.espruino.com/conversations/276160/
+http://pfalcon-oe.blogspot.fr/2012/04/opensource-sensor-node-firmware-for.html
+https://blogs.msdn.microsoft.com/devschool/2015/10/27/iot-exploring-the-mysteries-of-hc-05-programming/
+http://forum.arduino.cc/index.php?topic=200214.0
+http://hackaday.com/2014/05/18/firmware-for-cheap-bluetooth-modules/
+http://www.instructables.com/id/3-Bluetooth-HID-Module-HC05-With-RN42-Firmware/
+
+##### easily pairing on Ubuntu 14.04 ( HC-05 )
 
 If having troubles with the process of pairing a new device using the OS bluetooth GUI ( cause of the 'PIN KEY Options' bug that prevents selection to be taken in account ), follow the following steps to be runnin' in few minutes:
 - 0: fire up a terminal
