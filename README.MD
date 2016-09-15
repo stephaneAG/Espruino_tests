@@ -1,3 +1,7 @@
+TODOs:  
+Capturing mouse events & Cie: http://forum.espruino.com/conversations/284427/#comment13000170  
+
+
 R: to produce a link to the Espruino Web Ide, just use the following javascript on any page containing some code
 ```javascript
 var espruinoCode = document.getElementsByTagName('pre')[0].innerText
@@ -18,5 +22,20 @@ ex: with [SingleButtonCombinationMulticodesLock_Espruino.js](https://raw.githubu
 <a href="http://www.espruino.com/webide?codeurl=https://raw.githubusercontent.com/stephaneAG/Espruino_tests/master/SingleButtonCombinationMulticodesLock/SingleButtonCombinationMulticodesLock_Espruino.js" class="codelink" title="Send to Web IDE"> <img src="http://www.espruino.com/favicon.ico"></a>
 
 
-R: visit the following for C stuff :)
+R: visit the following for C stuff :)  
 http://jumspruino.jumware.com/docu/Extensions/index.html
+
+R: the followings may be of interest ;p  
+http://www.makeuseof.com/tag/emulate-raspberry-pi-pc/  
+http://forum.espruino.com/conversations/278380/?offset=25#comment13018647  
+
+R: want micropython on the Pico ?  
+https://maxlupo.com/installing-micropython-on-the-espruino-pico/  
+http://ictoblog.nl/2016/07/28/bbc-microbit-as-an-eddystone-url-beacon-using-espruino?fdx_switcher=true  
+
+R: somehow related stuff ( js interpreters )  
+https://github.com/gfwilliams/tiny-js/blob/wiki/CodeExamples.md  
+http://hackaday.com/2012/10/05/a-javascript-interpreter-for-arm-micros/  
+https://code.google.com/archive/p/talktic/  
+https://github.com/Samsung/jerryscript  
+https://helxsz.wordpress.com/2012/05/31/a-javascript-interpreter-for-arduino/  
