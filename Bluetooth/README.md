@@ -60,3 +60,16 @@ Device tag found, getting device id ..
 Connecting to bluetooth device HC-05 ( rfcomm1 ) ..
 command to be called: rfcomm connect 1
 ```
+
+
+##### talk to a device by using its name Ubuntu 14.04
+```
+$ Tefspruino <the_commands>
+```
+
+TODO: update code to use the following when passing a file & not a one-liner:
+```
+echo 'echo(0)' /dev/...;
+cp /path/to/javascript/file.js /dev/...;
+echo 'echo(1)' /dev/...;
+```
