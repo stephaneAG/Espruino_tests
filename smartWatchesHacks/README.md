@@ -11,12 +11,23 @@ http://forum.espruino.com/conversations/280747/
 Topic on the Espruino forums: Testing Puck.js on the nRF52 Dev Kit
 http://forum.espruino.com/conversations/291522/#comment13166145
 
+Other relatd topics on the Espruino forums:
+http://forum.espruino.com/conversations/292530/#comment13202218  
+
+nRF52 Docs:  
+https://www.nordicsemi.com/eng/Products/Getting-started-with-the-nRF52-Development-Kit  
+http://infocenter.nordicsemi.com/pdf/nRF52_DK_PB_v1.2.pdf  
+http://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.welcome%2Fdita%2Fwelcome%2Fstartpage.html&cp=0  
+
 some nRF52 related stuff
+http://electronut.in/nrf51-dk-external-programming/  
+https://aaroneiche.com/2016/06/01/programming-an-nrf52-on-a-mac/  
 https://www.tindie.com/products/onehorse/nrf52832-development-board/
 https://developer.mbed.org/questions/68359/NRF52-Support/
 https://devzone.nordicsemi.com/tutorials/7/
 https://devzone.nordicsemi.com/question/72675/nrf52-dk-flashing-with-jlink-in-ubuntu/
 https://github.com/contiki-os/contiki/tree/master/platform/nrf52dk
+https://diyiot.wordpress.com/  
 
 firmware dump, anyone ?  
 http://blog.includesecurity.com/2015/11/NordicSemi-ARM-SoC-Firmware-dumping-technique.html  
