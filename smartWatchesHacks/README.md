@@ -18,6 +18,9 @@ https://devzone.nordicsemi.com/tutorials/7/
 https://devzone.nordicsemi.com/question/72675/nrf52-dk-flashing-with-jlink-in-ubuntu/
 https://github.com/contiki-os/contiki/tree/master/platform/nrf52dk
 
+firmware dump, anyone ?  
+http://blog.includesecurity.com/2015/11/NordicSemi-ARM-SoC-Firmware-dumping-technique.html  
+http://www.lemilica.com/hacking-smart-bracelet-wristband/  
 
 #### flash & program the "iDO / DO 003" smartwatch ( extracted from the Espruino forums: http://forum.espruino.com/conversations/280747/ ):
 3 wires for SWD ( Serial Wire Debug )( DIA, CLK & GND )
