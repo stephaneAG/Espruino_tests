@@ -54,8 +54,8 @@ Name |	Pins |	Notes
 | --- | --- | --- |
 RX pad |	P0.17 | ?	
 TX pad |	P0.18	
-CLK pad	| SWDIO	
-DIA pad	| SWDCLK	
+CLK pad	| SWDCLK	| fixed "Gordon was tired"
+DIA pad	| SWDIO	| same fix as above ;)
 32k osc?	| P0.26, P0-27 |	Not fitted
 Vibrate |	P0.07	| via some FET/transistor
 Button |	P0.04 |	Needs input_pullup
