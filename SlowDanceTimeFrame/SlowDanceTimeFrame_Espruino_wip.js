@@ -59,7 +59,7 @@ var phaseShift = 0.1; // ex: f=0.5 -> T=2 -> 2 seconds per slow motion cycle
 //Prescaler = 1024 = CS111 = 64us/tick
 //PIN 3
 var magPin = 3; // NOTE: to change for one of Espruino pins
-var magDuty = 15; // R: "8" in "simple" version //12 be carefull not overheat the magnet. better adjust force through magnet position
+var magDuty = 15; // NOTE: currently not used // R: "8" in "simple" version //12 be carefull not overheat the magnet. better adjust force through magnet position
 var magFrequency = baseFreq;
 var magTime = Math.round(16000000/1024/magFrequency); // NOTE: currently not used
 
@@ -67,12 +67,12 @@ var magTime = Math.round(16000000/1024/magFrequency); // NOTE: currently not use
 //Prescaler = 8 = CS010 = 0.5 us/tick
 //PIN 10
 var lightPin = 10; // NOTE: to change for one of Espruino pins
-var ledDuty = 7; // R: "20" in "simple" version
+var ledDuty = 7; // NOTE: currently not used // R: "20" in "simple" version
 var ledFrequency = magFrequency + phaseShift;
 var ledTime = Math.round(16000000/8/ledFrequency); // NOTE: currently not used
 
 var setup = function () {
-  //Serial1.setup(9600/*baud*/);
+  Serial1.setup(9600/*baud*/);
 
   pinMode(ledPin , 'output'); //Heart Beat LED
   pinMode(modeSelectPin, 'input'); //button pin
@@ -122,7 +122,7 @@ var adjustMode = function(){
   }
 }
 
-// R: in '1023L' the 'L' stands for 'Long'
+// R: in '1023L' the 'L' stands for 'Long' ( in the original code )
 var adjustSpeed = function(){
   //phaseShift = -( phaseShiftMax - phaseShiftMin ) / 1023 * analogRead(speedControlPin) + phaseShiftMax; //Speed: 0.1 .. 5 Hz
   phaseShift = -( phaseShiftMax - phaseShiftMin ) / 1023 * map( analogRead(speedControlPin), 0, 1, 0, 1023 ) + phaseShiftMax; //Speed: 0.1 .. 5 Hz
