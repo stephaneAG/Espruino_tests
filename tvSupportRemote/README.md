@@ -2,8 +2,9 @@ Remote control a DQ MyWall HP23L motorized wall mount using Espruino ! :D
 
 Module ( implementing transmitting & receiving ) coming soon ;)
 
-Current APi to transmit commands:
-'''
+Current APi to transmit commands: 
+'''javascript 
+
 tvSupportRemote.in        // retract TV to wall              
                 out       // expand TV from wall
                 left      // swivel the TV fully left
