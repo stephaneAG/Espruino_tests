@@ -1,3 +1,7 @@
+/* ==== WIP MODULE ==== */
+
+var exports={}; // added to test for right hand side of the IDE
+
 /* Copyright (c) 2018 StéphaneAG. See the file LICENSE for copying permission. */
 /*
 Library for interfacing the ModernDevices Wind Sensor Rev C
@@ -103,7 +107,7 @@ WINDSENSOR.getSensorReadings = function(callback){
   TMP_Therm_ADunits = analogRead(analogPinForTMP);
   RV_Wind_ADunits = analogRead(analogPinForRV);
   RV_Wind_Volts = (RV_Wind_ADunits *  0.0048828125);
-  
+
   // these are all derived from regressions from raw data as such they depend on a lot of experimental factors
   // such as accuracy of temp sensors, and voltage at the actual wind sensor, (wire losses) which were unaccouted for.
   TempCtimes100 = (0.005 *(TMP_Therm_ADunits * TMP_Therm_ADunits)) - (16.862 * TMP_Therm_ADunits) + 9075.4;  
@@ -111,17 +115,17 @@ WINDSENSOR.getSensorReadings = function(callback){
   zeroWind_ADunits = -0.0006*(TMP_Therm_ADunits * TMP_Therm_ADunits) + 1.0727 * TMP_Therm_ADunits + 47.172;  //  13.0C  553  482.39
 
   zeroWind_volts = (zeroWind_ADunits * 0.0048828125) - zeroWindAdjustment;
-  
+
   // This from a regression from data in the form of 
   // Vraw = V0 + b * WindSpeed ^ c
   // V0 is zero wind at a particular temperature
   // The constants b and c were determined by some Excel wrangling with the solver.
-  
-  WindSpeed_MPH =  pow(((RV_Wind_Volts - zeroWind_volts) /.2300) , 2.7265);   
-   
+
+  WindSpeed_MPH =  pow(((RV_Wind_Volts - zeroWind_volts) /.2300) , 2.7265);
+
   Console.log("  TMP volts ");
   Console.log(TMP_Therm_ADunits * 0.0048828125);
-    
+
   Console.log(" RV volts ");
   Console.log(RV_Wind_Volts);
 
@@ -133,7 +137,7 @@ WINDSENSOR.getSensorReadings = function(callback){
 
   Console.log("   WindSpeed MPH ");
   Console.log(WindSpeed_MPH);
-  
+
   var sensorReadings = {
     tmpVolts: TMP_Therm_ADunits * 0.0048828125,
     rvVolts: RV_Wind_Volts,
@@ -141,7 +145,7 @@ WINDSENSOR.getSensorReadings = function(callback){
     zeroWindVolts: zeroWind_volts,
     windSpeedMPH: WindSpeed_MPH
   };
-  
+
   if (callback) callback(sensorReadings);
   else return sensorReadings;
 };
@@ -152,3 +156,20 @@ WINDSENSOR.getSensorReadings = function(callback){
 exports.connect = function (outInputPin, RvInputPin, TmpInputPin, connectedCallback) {
   if(connectedCallback) connectedCallback(WINDSENSOR);
   return WINDSENSOR;
+};
+
+
+
+// == test code for module check ==
+//var windSensor = require('WindSensor').connect(outInputPin, RvInputPin, TmpInputPin, function(err){
+var windSensor = exports.connect(outInputPin, RvInputPin, TmpInputPin, function(err){
+  if(!err){
+    // register callback handler
+    windSensor.registerHandler(function(sensorReadings){
+      // here, do stuff with Out, Rv & Temp
+      console.log(sensorReadings);
+    });
+  } else {
+    console.log(err);
+  }
+});
