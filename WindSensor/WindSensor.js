@@ -6,6 +6,8 @@ var exports={}; // added to test for right hand side of the IDE
 /*
 Library for interfacing the ModernDevices Wind Sensor Rev C
 Adapted from Arduino code by Paul Badger 2014
+https://github.com/moderndevice/Wind_Sensor/blob/master/WindSensor/WindSensor.ino
+See https://moderndevice.com/news/wind-sensor-calibration/ for original Arduino calibration
 ```
 var windSensor = require('WindSensor').connect(outInputPin, RvInputPin, TmpInputPin, function(err){
   if(!err){
@@ -53,11 +55,13 @@ WINDSENSOR.prototype.bar = function() {
 
 var WINDSENSOR = {};
 // pins
-var analogPinForOut = undefined;
-var analogPinForRV = undefined;
-var analogPinForTMP = undefined;
+//var analogPinForOut = undefined; // not used for now ..
+//var analogPinForRV = undefined;
+//var analogPinForTMP = undefined;
+var analogPinForRV = A1; // R: through a level shifter as only 3.3V tolerant
+var analogPinForTMP = A0; // R: through a level shifter as only 3.3V tolerant
 // vars
-var zeroWindAdjustment =  .2; // (float)
+var zeroWindAdjustment =  0.2; // (float)
 
 var TMP_Therm_ADunits;  //temp termistor value from wind sensor (int)
 var RV_Wind_ADunits;    //RV output from wind sensor (float)
@@ -98,7 +102,7 @@ WINDSENSOR.startSensorReadings = function(){
 };
 // stop the readings
 WINDSENSOR.stopSensorReadings = function(){
-  if(WINDSENSOR.updateInterval === undefined) clearInterval(WINDSENSOR.updateInterval);
+  if(WINDSENSOR.updateInterval !== undefined) clearInterval(WINDSENSOR.updateInterval);
   WINDSENSOR.updateInterval = undefined;
 };
 
@@ -121,22 +125,22 @@ WINDSENSOR.getSensorReadings = function(callback){
   // V0 is zero wind at a particular temperature
   // The constants b and c were determined by some Excel wrangling with the solver.
 
-  WindSpeed_MPH =  pow(((RV_Wind_Volts - zeroWind_volts) /.2300) , 2.7265);
+  WindSpeed_MPH = Math.pow(((RV_Wind_Volts - zeroWind_volts) /0.2300) , 2.7265); // NaN ? :/ ..
 
-  Console.log("  TMP volts ");
-  Console.log(TMP_Therm_ADunits * 0.0048828125);
+  console.log("  TMP volts ");
+  console.log(TMP_Therm_ADunits * 0.0048828125);
 
-  Console.log(" RV volts ");
-  Console.log(RV_Wind_Volts);
+  console.log(" RV volts ");
+  console.log(RV_Wind_Volts);
 
-  Console.log("\t  TempC*100 ");
-  Console.log(TempCtimes100 );
+  console.log("\t  TempC*100 ");
+  console.log(TempCtimes100 );
 
-  Console.log("   ZeroWind volts ");
-  Console.log(zeroWind_volts);
+  console.log("   ZeroWind volts ");
+  console.log(zeroWind_volts);
 
-  Console.log("   WindSpeed MPH ");
-  Console.log(WindSpeed_MPH);
+  console.log("   WindSpeed MPH ");
+  console.log(WindSpeed_MPH);
 
   var sensorReadings = {
     tmpVolts: TMP_Therm_ADunits * 0.0048828125,
@@ -161,6 +165,11 @@ exports.connect = function (outInputPin, RvInputPin, TmpInputPin, connectedCallb
 
 
 // == test code for module check ==
+// dummy external vars for now ..
+var outInputPin = undefined;
+var RvInputPin = A1;
+var TmpInputPin = A0;
+    
 //var windSensor = require('WindSensor').connect(outInputPin, RvInputPin, TmpInputPin, function(err){
 var windSensor = exports.connect(outInputPin, RvInputPin, TmpInputPin, function(err){
   if(!err){
