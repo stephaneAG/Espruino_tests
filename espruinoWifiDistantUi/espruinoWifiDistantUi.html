@@ -8,7 +8,7 @@
 
   // get url params ( may have been set by the Espruino Wifi serving not the ui directly, bu a redirect to it )
   var urlParams = new URLSearchParams(window.location.search);
-  if( urlParams.has('post'){
+  if( urlParams.has('post') }{
     console.log('AP addr: ' + urlParams.get('apaddr')); // <apNameOrIpAddress>
     apaddr = urlParams.get('apaddr');
   }
